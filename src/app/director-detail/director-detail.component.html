@@ -1,0 +1,26 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">About Us</p>
+      <h1 class="hero__title">Our Board of Directors</h1>
+    </div>
+    <div class="hero__image">
+      <img src="assets/images/BOD AIMAX-21.png" alt="AIMAX Board" />
+    </div>
+  </div>
+</section>
+
+<section class="profile section">
+  <div class="container">
+    <article class="profile-card">
+      <div class="profile-card__photo">
+        <img [src]="director().photo" [alt]="director().name" />
+      </div>
+      <div class="profile-card__body">
+        <h2 class="profile-card__name">{{ director().name }}</h2>
+        <p class="profile-card__title">{{ director().title }}</p>
+        <div class="profile-card__bio" [innerHTML]="director().bioHtml"></div>
+      </div>
+    </article>
+  </div>
+</section>

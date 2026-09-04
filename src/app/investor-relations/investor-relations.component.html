@@ -1,0 +1,64 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__title">Investor Relations</h1>
+    </div>
+    <div class="hero__image hero__image--center">
+      <div class="coins-graphic" aria-hidden="true">
+        <span class="coin"></span><span class="coin"></span><span class="coin"></span>
+        <span class="arrow-up">↗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="badge">BURSA SHORTCUTS</div>
+    <div class="shortcuts-grid">
+      @for (s of shortcuts; track s) {
+        <a href="https://www.klsescreener.com/v2/announcements/stock/0041" target="_blank" rel="noopener" class="shortcut">
+          <span class="shortcut__dash">—</span>
+          <span>{{ s }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="downloads-title">Downloadable Content</h2>
+    <div class="downloads-grid">
+      <div class="downloads-card">
+        <h3 class="downloads-card__title">Annual Report</h3>
+        @for (r of reports; track r.label) {
+          <div class="downloads-row">
+            <span>{{ r.label }}</span>
+            <a class="download-btn" href="assets/documents/{{ r.file }}" download>DOWNLOAD</a>
+          </div>
+        }
+      </div>
+      <div class="downloads-card">
+        <h3 class="downloads-card__title">Summary of Key Matter Discussed</h3>
+        @for (a of agm; track a.label) {
+          <div class="downloads-row">
+            <span>{{ a.label }}</span>
+            <a class="download-btn" href="assets/documents/{{ a.file }}" download>DOWNLOAD</a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner section">
+  <div class="container">
+    <h2 class="cta-banner__title">Stay connected with our Investor news in Bursa Malaysia website</h2>
+    <p class="cta-banner__sub"><em>Caution concerning forward looking statements</em></p>
+    <p class="cta-banner__text">
+      For the most current investor information, please refer to AIMAX's dedicated Investor Relations page on Bursa Malaysia (stock code 0041), our corporate blog, and social media channels. Information is updated regularly.
+    </p>
+    <a href="https://bursa.listedcompany.com/home.html" target="_blank" rel="noopener" class="cta-banner__btn">VISIT BURSA</a>
+  </div>
+</section>

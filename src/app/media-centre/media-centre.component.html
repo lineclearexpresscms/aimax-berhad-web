@@ -1,0 +1,44 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__title">Media Centre</h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="tabs">
+      <button class="tab" [class.tab--active]="tab() === 'release'" (click)="setTab('release')">Media Release / Coverage</button>
+      <button class="tab" [class.tab--active]="tab() === 'events'" (click)="setTab('events')">Events / Happenings</button>
+    </div>
+
+    @if (tab() === 'release') {
+      <div class="media-grid">
+        @for (m of release; track m.headline) {
+          <article class="media-card">
+            <div class="media-card__image">
+              <img [src]="m.img" [alt]="m.headline" />
+              <span class="media-card__date">{{ m.date }}</span>
+            </div>
+            <h3 class="media-card__headline">{{ m.headline }}</h3>
+            <p class="media-card__source">{{ m.source }}</p>
+          </article>
+        }
+      </div>
+    } @else {
+      <div class="media-grid">
+        @for (m of events; track m.headline) {
+          <article class="media-card">
+            <div class="media-card__image">
+              <img [src]="m.img" [alt]="m.headline" />
+              <span class="media-card__date">{{ m.date }}</span>
+            </div>
+            <h3 class="media-card__headline">{{ m.headline }}</h3>
+            <p class="media-card__source">{{ m.source }}</p>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>

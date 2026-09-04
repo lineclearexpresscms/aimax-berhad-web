@@ -1,0 +1,83 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__title">Contact Us</h1>
+    </div>
+    <div class="hero__image">
+      <img src="assets/images/CONTACT US.png" alt="AIMAX contact" />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-card__col">
+        <h2 class="contact-card__title">General Inquiry or Feedback</h2>
+        <p class="contact-card__intro">Thank you for your interest in AIMAX. Fields marked with an asterisk (*) are required.</p>
+
+        @if (!submitted()) {
+          <form class="contact-form" (submit)="submit($event)">
+            <label>
+              What is your relationship with AIMAX? *
+              <input type="text" required [value]="model().relationship" (input)="update('relationship', $any($event.target).value)" />
+            </label>
+            <label>
+              Subject *
+              <input type="text" required [value]="model().subject" (input)="update('subject', $any($event.target).value)" />
+            </label>
+            <label>
+              Area of interest *
+              <input type="text" required [value]="model().area" (input)="update('area', $any($event.target).value)" />
+            </label>
+            <label>
+              Select your location
+              <select [value]="model().location" (change)="update('location', $any($event.target).value)">
+                <option value="">-- Please choose --</option>
+                <option value="my">Malaysia</option>
+                <option value="sg">Singapore</option>
+                <option value="intl">International</option>
+              </select>
+            </label>
+            <label>
+              Email Address *
+              <input type="email" required [value]="model().email" (input)="update('email', $any($event.target).value)" />
+            </label>
+            <label>
+              Phone Number *
+              <input type="tel" required [value]="model().phone" (input)="update('phone', $any($event.target).value)" />
+            </label>
+            <label>
+              Comments or Questions *
+              <textarea rows="5" required [value]="model().comments" (input)="update('comments', $any($event.target).value)"></textarea>
+            </label>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        } @else {
+          <div class="success-msg">
+            <h3>Thank you!</h3>
+            <p>Your message has been received. We'll get back to you shortly.</p>
+          </div>
+        }
+      </div>
+
+      <aside class="contact-card__col contact-info">
+        <h2 class="contact-card__title">Contact Information</h2>
+
+        <div class="contact-block">
+          <h3>AIMAX BERHAD</h3>
+          <p>Registration No.: 200101001581 (537337-M)</p>
+          <p>Hotline: +603-7887 1666</p>
+          <p>Address: No 5, Jalan 51A/223, Seksyen 51A, 46100 Petaling, Selangor Darul Ehsan, Malaysia.</p>
+          <p>Email: <a href="mailto:corporate@aimax.com.my">corporate@aimax.com.my</a></p>
+        </div>
+
+        <div class="contact-block">
+          <h3>Aimax Healthcare Sdn Bhd</h3>
+          <p>Registration No.: 200101001581 (537337-M)</p>
+          <p>Email: <a href="mailto:marketing@aimax.com.my">marketing@aimax.com.my</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

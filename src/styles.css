@@ -1,0 +1,91 @@
+/* AIMAX Berhad — Global Styles */
+:root {
+  --c-primary:       #4B2E83;
+  --c-primary-dark:  #3A1F66;
+  --c-secondary:     #1FB6B0;
+  --c-bg:            #FFFFFF;
+  --c-bg-alt:        #F2F2F5;
+  --c-text:          #222222;
+  --c-text-muted:    #6B7280;
+  --radius-card:     16px;
+  --radius-pill:     999px;
+  --space-section:   clamp(48px, 8vw, 96px);
+  --font-sans:       'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --max-width:       1280px;
+  --header-height:   72px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  :root { --space-section: 64px; }
+}
+
+/* Section helpers */
+.section { padding: var(--space-section) 0; }
+.section--alt { background: var(--c-bg-alt); }
+
+/* Hero base */
+.hero {
+  background: var(--c-primary);
+  color: #fff;
+  padding: clamp(80px, 12vw, 160px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero--teal { background: var(--c-secondary); }
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__eyebrow {
+  font-size: 0.875rem;
+  opacity: 0.85;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.hero__title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.hero__title strong { font-weight: 800; }
+.hero__cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 28px;
+  background: var(--c-primary);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.hero--teal .hero__cta { background: #fff; color: var(--c-secondary); }
+.hero__cta:hover { background: var(--c-primary-dark); }
+.hero--teal .hero__cta:hover { background: var(--c-bg-alt); color: var(--c-secondary); }
+.hero__image img { max-height: 360px; margin-left: auto; }
+
+@media (max-width: 768px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero__image img { margin: 0 auto; }
+}

@@ -1,0 +1,30 @@
+.finance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.finance-image img {
+  width: 100%;
+  border-radius: var(--radius-card);
+}
+.finance-card {
+  background: rgba(75, 46, 131, 0.06);
+  border-radius: var(--radius-card);
+  padding: 40px;
+}
+.finance-card__title {
+  color: var(--c-primary);
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+.finance-card__text {
+  color: var(--c-primary);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .finance-grid { grid-template-columns: 1fr; gap: 24px; }
+}

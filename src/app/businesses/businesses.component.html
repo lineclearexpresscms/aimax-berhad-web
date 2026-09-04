@@ -1,0 +1,27 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">About Us</p>
+      <h1 class="hero__title">Our Businesses</h1>
+    </div>
+  </div>
+</section>
+
+<section class="divisions section">
+  <div class="container">
+    <div class="divisions__grid">
+      @for (d of divisions; track d.slug) {
+        <a [routerLink]="d.link" class="division-card">
+          <div class="division-card__image">
+            <img [src]="d.img" [alt]="d.title" />
+            <div class="division-card__overlay"></div>
+          </div>
+          <div class="division-card__body">
+            <h3 class="division-card__title">{{ d.title }}</h3>
+            <p class="division-card__tagline">{{ d.tagline }}</p>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

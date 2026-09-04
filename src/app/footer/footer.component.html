@@ -1,0 +1,84 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img src="assets/images/AIMAX LOGO-02.png" alt="AIMAX Berhad" class="footer__logo" />
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">About us</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/about">Corporate Overview</a></li>
+        <li><a routerLink="/about/structure">Corporate Structure</a></li>
+        <li><a routerLink="/about/board-of-directors">Board of Directors</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Businesses</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/businesses/gloves/nitrile">Nitrile Examination Gloves</a></li>
+        <li><a routerLink="/businesses/gloves/natural-latex">Natural Latex Gloves</a></li>
+        <li><a routerLink="/businesses/gloves/chlorinated-latex">Chlorinated Latex Gloves</a></li>
+        <li><a routerLink="/businesses/healthcare">Healthcare</a></li>
+        <li><a routerLink="/businesses/financial-services">Financial Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Investor Relations</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/investor-relations">Bursa Info List</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Leadership</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/about/board-of-directors">Board of Directors</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--newsletter">
+      <h4 class="footer__heading">Subscribe to our newsletter</h4>
+      <form class="footer__newsletter" (submit)="$event.preventDefault()">
+        <input type="email" placeholder="Your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Sitemap</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/businesses">Businesses</a></li>
+        <li><a routerLink="/investor-relations">Investors</a></li>
+        <li><a routerLink="/media-centre">Media Centre</a></li>
+        <li><a routerLink="/about/board-of-directors">Leadership</a></li>
+        <li><a routerLink="/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Media Centre</h4>
+      <ul class="footer__list">
+        <li><a routerLink="/media-centre">Media Release</a></li>
+        <li><a routerLink="/media-centre">Media Coverage</a></li>
+        <li><a routerLink="/media-centre">Events / Happenings</a></li>
+        <li><a routerLink="/media-centre">Video Gallery</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4 class="footer__heading">Corporate Headquarters</h4>
+      <p class="footer__address">
+        No 5, Jalan 51A/223,<br>
+        Seksyen 51A, 46100 Petaling,<br>
+        Selangor Darul Ehsan, Malaysia.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer__bar">
+    <p>© {{ year }} Aimax Berhad. All Rights Reserved.</p>
+  </div>
+</footer>

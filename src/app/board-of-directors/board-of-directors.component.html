@@ -1,0 +1,28 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">About Us</p>
+      <h1 class="hero__title">Our Board of Directors</h1>
+    </div>
+    <div class="hero__image">
+      <img src="assets/images/BOD AIMAX-21.png" alt="AIMAX Board of Directors" />
+    </div>
+  </div>
+</section>
+
+<section class="board section">
+  <div class="container">
+    <div class="board__grid">
+      @for (d of directors; track d.slug) {
+        <a [routerLink]="['/about/board-of-directors', d.slug]" class="board-card">
+          <div class="board-card__photo">
+            <img [src]="d.photo" [alt]="d.name" />
+          </div>
+          <h3 class="board-card__name">{{ d.name }}</h3>
+          <p class="board-card__title">{{ d.title }}</p>
+          <span class="board-card__cta">Learn more</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

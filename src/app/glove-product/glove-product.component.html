@@ -1,0 +1,99 @@
+<section [class]="product().heroClass">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">{{ product().eyebrow }}</p>
+      <h1 class="hero__title">{{ product().title }}</h1>
+      <span class="hero__badge">{{ product().badge }}</span>
+    </div>
+    <div class="hero__image">
+      <img [src]="product().heroImg" [alt]="product().title" />
+    </div>
+  </div>
+</section>
+
+<section class="specs section">
+  <div class="container specs__grid">
+    <div class="card">
+      <h3 class="card__title">Product Specifications</h3>
+      <dl class="card__list">
+        @for (s of product().specs; track s.label) {
+          <dt>{{ s.label }}</dt>
+          <dd>{{ s.value }}</dd>
+        }
+      </dl>
+    </div>
+    <div class="card">
+      <h3 class="card__title">Available Sizes</h3>
+      <table class="sizes-table">
+        <thead><tr><th>Sizes</th><th>Palm Width (mm)</th></tr></thead>
+        <tbody>
+          @for (s of product().sizes; track s.label) {
+            <tr><td>{{ s.label }}</td><td>{{ s.width }}</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+@if (product().colors.length > 1) {
+  <section class="colors section section--alt">
+    <div class="container">
+      <h3 class="colors__title">Available Colors</h3>
+      <div class="colors__grid">
+        @for (c of product().colors; track c.name) {
+          <div class="color-tile">
+            <div class="color-swatch" [style.background]="c.swatch"></div>
+            <span class="color-name">{{ c.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+}
+
+<section class="section">
+  <div class="container">
+    <div class="props-grid">
+      <div class="card">
+        <h3 class="card__title">Physical Dimension</h3>
+        @for (d of product().dimensions; track d.length) {
+          <div class="dim-block">
+            <p class="dim-label">{{ d.length }}</p>
+            <table class="dim-table">
+              <thead><tr><th>Weight</th><th>Cuff (mm)</th><th>Palm (mm)</th><th>Finger (mm)</th></tr></thead>
+              <tbody>
+                @for (r of d.rows; track r.weight) {
+                  <tr><td>{{ r.weight }}</td><td>{{ r.cuff }}</td><td>{{ r.palm }}</td><td>{{ r.finger }}</td></tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+      </div>
+      <div class="card">
+        <h3 class="card__title">Physical Properties</h3>
+        <dl class="card__list">
+          @for (p of product().properties; track p.label) {
+            <dt>{{ p.label }}</dt>
+            <dd>{{ p.value }}</dd>
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="applications section" [class.applications--teal]="product().heroAccent === 'teal'">
+  <div class="container">
+    <h3 class="applications__title">Product Applications</h3>
+    <div class="applications__grid">
+      @for (a of product().applications; track a.name) {
+        <div class="app-tile">
+          <img class="app-tile__icon" [src]="a.icon" [alt]="a.name" />
+          <span class="app-tile__label">{{ a.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

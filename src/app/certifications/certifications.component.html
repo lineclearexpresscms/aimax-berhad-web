@@ -1,0 +1,44 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Product</p>
+      <h1 class="hero__title">Certifications</h1>
+    </div>
+    <div class="hero__image">
+      <div class="cert-stamp" aria-hidden="true">CERTIFIED</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cert-card">
+      <h2 class="cert-card__title">Certifications</h2>
+      <p class="cert-card__subtitle">Facility Certification</p>
+      <div class="cert-card__row">
+        @for (c of facilityCerts; track c.name) {
+          <div class="cert-tile">
+            <img [src]="c.icon" [alt]="c.name" class="cert-tile__img" />
+            <p class="cert-tile__name">{{ c.name }}</p>
+            <p class="cert-tile__desc">{{ c.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <h2 class="cert-card__title">Product Conformance</h2>
+      <div class="conformance__grid">
+        @for (c of conformance; track c.name) {
+          <div class="conformance__tile">
+            <img class="conformance__icon" [src]="c.icon" [alt]="c.name" />
+            <div>
+              <p class="conformance__name">{{ c.name }}</p>
+              <p class="conformance__desc">{{ c.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

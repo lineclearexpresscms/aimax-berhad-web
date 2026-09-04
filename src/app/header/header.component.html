@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="container header__inner">
+    <a routerLink="/" class="header__logo" (click)="closeMobile()">
+      <img src="assets/images/AIMAX LOGO-02.png" alt="AIMAX Berhad" />
+      <span class="header__reg">Registration No. 200101001581 (537337-M)</span>
+    </a>
+
+    <nav class="nav" [class.nav--open]="mobileOpen()">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a routerLink="/about" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">About Us</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/about/board-of-directors" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Leadership</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/businesses" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Businesses</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/investor-relations" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Investor Relations</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/media-centre" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Media Centre</a>
+        </li>
+        <li class="nav__item">
+          <a routerLink="/contact-us" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="header__burger" (click)="toggleMobile()" [class.is-active]="mobileOpen()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

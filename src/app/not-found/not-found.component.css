@@ -1,0 +1,32 @@
+.not-found {
+  padding: 120px 0;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.not-found__code {
+  font-size: clamp(5rem, 12vw, 9rem);
+  color: var(--c-primary);
+  font-weight: 800;
+  line-height: 1;
+}
+.not-found__title {
+  color: var(--c-primary);
+  margin-top: 16px;
+  font-size: 1.75rem;
+}
+.not-found__msg {
+  color: var(--c-text-muted);
+  margin: 16px auto 32px;
+  max-width: 480px;
+}
+.not-found__cta {
+  display: inline-block;
+  background: var(--c-primary);
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+.not-found__cta:hover { background: var(--c-primary-dark); }

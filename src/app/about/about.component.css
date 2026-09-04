@@ -1,0 +1,16 @@
+.section-title {
+  color: var(--c-primary);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.overview__body {
+  max-width: 880px;
+  margin: 0 auto;
+  color: var(--c-text);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.overview__body p { margin-bottom: 20px; }
+.overview__body strong { color: var(--c-primary); }
