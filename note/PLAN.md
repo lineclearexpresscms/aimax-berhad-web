@@ -1,8 +1,10 @@
-# AIMAX Berhad — Static Angular 22 Site
+# AIMAX Berhad — Static Angular 22 Site (LOCALHOST ONLY)
 
 **Project root:** `/opt/docker/aimax-berhad/` on `192.168.151.80`
 **Asset source:** `/opt/docker/aimax-berhad/image/` (logos, BOD portraits, glove images, icons)
 **PDF reference:** `/opt/docker/aimax-berhad/AIMAX BERHAD WEBSITE PREVIEW 2.pdf`
+
+> **Deployment scope: LOCALHOST ONLY.** This project is intended to run on `192.168.151.80` via `ng serve` or a local SPA-aware static server. **No live deploy, no nginx vhost, no domain, no SSL.** The `dist/` output stays on the host machine and is served to the local browser for testing.
 
 ---
 
@@ -18,15 +20,15 @@
 | Forms | **Signal Forms** (stable in v22) for contact form |
 | Routing | `provideRouter` + lazy `loadComponent` |
 | Styling | **CSS + CSS custom properties** (no SCSS — matches Intemath) |
-| Hosting | nginx on `192.168.151.80` — static `dist/` |
+| Hosting | **Localhost** — `ng serve` on port 4200, OR Python SPA fallback server on port 8765 |
 | Tests | None (skipped via `--skip-tests`) |
-| Git | None |
+| Git | **Yes** — `git@github.com:lineclearexpresscms/aimax-berhad-web.git` (master) |
 
 **Browser support (`browserslist`):** `> 0.5%, last 2 versions, not dead, not IE 11`. TS target: `ES2022`.
 
 ---
 
-## Bootstrap Command
+## Bootstrap Command (already executed)
 
 ```bash
 cd /opt/docker
@@ -37,15 +39,13 @@ ng new aimax-berhad \
   --ssr=false \
   --strict=true \
   --standalone=true \
-  --skip-git=true \
+  --skip-git=false \
   --skip-tests=true \
   --package-manager=npm \
-  --zoneless=true
+  --defaults
 ```
 
-> Folder name conflict: the existing `/opt/docker/aimax-berhad/` holds the PDF + `image/` assets. `ng new` will refuse a non-empty target. **Decision needed** before Phase 1.
-
-(See `PROGRESS.md` → "Decisions Pending" for options.)
+> Project was scaffolded directly into `/opt/docker/aimax-berhad/` (assets had been moved to `image/` subdir so the root was usable). Later, the entire `web/` subdir was folded back into the project root.
 
 ---
 
@@ -59,53 +59,39 @@ One folder per component, 3 files each (`.ts` + `.html` + `.css`). 16 components
 ├── image/                                 ← source assets (untouched)
 ├── AIMAX BERHAD WEBSITE PREVIEW 2.pdf
 │
-├── angular.json                           ← "AimaxBerhad" project
-├── package.json                           ← "aimax-berhad"
+├── angular.json                           ← "aimax-berhad" project
+├── package.json                           ← Angular 22.1
 ├── tsconfig.json / tsconfig.app.json
-├── .browserslistrc
-├── robots.txt / sitemap.xml
-├── public/favicon.ico
+├── .editorconfig / .prettierrc / .vscode/
+├── public/                                ← static assets (Angular 22 default)
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── assets/images/                     ← 72 PNGs + icons (copied from image/)
 │
-├── src/
-│   ├── main.ts                            ← bootstrapApplication
-│   ├── index.html                         ← <title>AIMAX Berhad</title>
-│   ├── styles.css                         ← :root tokens + global reset
-│   ├── assets/images/                     ← copied from image/ (selected only)
-│   │   ├── AIMAX LOGO-02.png / -03.png
-│   │   ├── HOMEPAGE-01.png … -03.png
-│   │   ├── HOMEPAGE BANNER.png / LOWER BANNER.png
-│   │   ├── CONTACT US.png / MEDIA.png / INVESTOR.png
-│   │   ├── FINANCIAL.png / F.SERVICES.png / HEALTHCARE.png
-│   │   ├── HEALTHCARE LINE.png / CERTIFICATIONS.png
-│   │   ├── Nitrile Glove.png + NITRILE GLOVES-08..10.png
-│   │   ├── Chlorinated Latex Glove.png
-│   │   ├── BOD AIMAX-13.png … -21.png      (9 portraits)
-│   │   ├── MY22_00000137.jpg / -512.jpg
-│   │   ├── hero-*.png                       (cropped from PDF)
-│   │   ├── certified-stamp.png
-│   │   ├── icons/                           (SVG sprite)
-│   │   └── documents/                       (annual reports)
-│   │
-│   └── app/
-│       ├── app.component.ts / .html / .css
-│       ├── app.config.ts                  ← zoneless + router + http
-│       ├── app.routes.ts                  ← 21 lazy standalone routes
-│       ├── header/{.ts, .html, .css}
-│       ├── footer/{.ts, .html, .css}
-│       ├── home/{.ts, .html, .css}
-│       ├── about/{.ts, .html, .css}
-│       ├── about-structure/{.ts, .html, .css}
-│       ├── board-of-directors/{.ts, .html, .css}
-│       ├── director-detail/{.ts, .html, .css}
-│       ├── businesses/{.ts, .html, .css}
-│       ├── glove-product/{.ts, .html, .css}
-│       ├── certifications/{.ts, .html, .css}
-│       ├── healthcare/{.ts, .html, .css}
-│       ├── financial-services/{.ts, .html, .css}
-│       ├── investor-relations/{.ts, .html, .css}
-│       ├── media-centre/{.ts, .html, .css}
-│       ├── contact-us/{.ts, .html, .css}
-│       └── not-found/{.ts, .html, .css}
+└── src/
+    ├── main.ts                            ← bootstrapApplication
+    ├── index.html                         ← <title>AIMAX Berhad</title>
+    ├── styles.css                         ← :root tokens + global reset
+    └── app/
+        ├── app.component.ts / .html / .css
+        ├── app.config.ts                  ← zoneless + router + http
+        ├── app.routes.ts                  ← 21 lazy standalone routes
+        ├── header/{.ts, .html, .css}
+        ├── footer/{.ts, .html, .css}
+        ├── home/{.ts, .html, .css}
+        ├── about/{.ts, .html, .css}
+        ├── about-structure/{.ts, .html, .css}
+        ├── board-of-directors/{.ts, .html, .css}
+        ├── director-detail/{.ts, .html, .css}
+        ├── businesses/{.ts, .html, .css}
+        ├── glove-product/{.ts, .html, .css}
+        ├── certifications/{.ts, .html, .css}
+        ├── healthcare/{.ts, .html, .css}
+        ├── financial-services/{.ts, .html, .css}
+        ├── investor-relations/{.ts, .html, .css}
+        ├── media-centre/{.ts, .html, .css}
+        ├── contact-us/{.ts, .html, .css}
+        └── not-found/{.ts, .html, .css}
 ```
 
 ---
@@ -234,22 +220,50 @@ export class DirectorDetailComponent {
 
 ---
 
-## Build & Deploy
+## Localhost Run Commands
 
+**Option A — Angular dev server (recommended for dev):**
 ```bash
+ssh jieling@192.168.151.80
 cd /opt/docker/aimax-berhad
-npm run build                                 # → dist/aimax-berhad/browser/
-rsync -avz --delete dist/aimax-berhad/browser/ \
-  jieling@192.168.151.80:/var/www/aimax-berhad/
-# nginx: try_files $uri $uri/ /index.html;
+npx ng serve --host 0.0.0.0 --port 4200
+# Open http://192.168.151.80:4200 in your browser
 ```
+SPA fallback is built into `ng serve`. HMR enabled for live edits.
+
+**Option B — Production build + SPA-aware static server (what's running now):**
+```bash
+ssh jieling@192.168.151.80
+cd /opt/docker/aimax-berhad
+npm run build                                                       # → dist/web/browser/
+# Start the SPA fallback server (Python, single file at /tmp/spa_server.py)
+nohup python3 /tmp/spa_server.py >/tmp/spa.log 2>&1 & disown
+# Open http://192.168.151.80:8765 in your browser
+```
+
+**Stop the server:**
+```bash
+ssh jieling@192.168.151.80 'fuser -k 8765/tcp 2>/dev/null'
+```
+
+**Git workflow (commit + push):**
+```bash
+ssh jieling@192.168.151.80
+cd /opt/docker/aimax-berhad
+git add -A
+git commit -m "Your message"
+git push origin master
+```
+Remote: `git@github.com:lineclearexpresscms/aimax-berhad-web.git`
 
 ---
 
 ## Risks / Watch-outs
 
-- Folder collision — `/opt/docker/aimax-berhad/` is non-empty (PDF + image/). Resolve before `ng new`.
+- **Localhost only** — no nginx, no domain, no deploy. The `dist/` folder is for local review only.
 - Angular 22 brand new (Jun 3, 2026) — minor bugs possible. v21 LTS is a safer fallback if any blocker appears.
 - Hero PNGs are 1–3 MB each — ship as-is in v1, optimize later.
 - PDF content typos ("INTERGRATED", "Assests") — fix once in the HTML.
-- No git — manual backup of `src/` before big edits.
+- `node_modules/` is 250MB and `dist/` is 33MB — both gitignored, repo stays small.
+- The repo on GitHub is empty/private — confirm visibility before sharing.
+- macOS/Windows users can also `git clone` and run `npm install` + `ng serve` locally; no remote server needed.

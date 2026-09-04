@@ -4,6 +4,7 @@
 - **Path:** `/opt/docker/aimax-berhad/` on `192.168.151.80` (project root — moved up from `web/` subdir on 2026-09-04)
 - **Stack:** Angular 22.1 (zoneless, standalone, Signals)
 - **Goal:** Static 21-page site mirroring the design PDF
+- **Scope:** **LOCALHOST ONLY** — no deploy, no nginx, no live domain
 - **Started:** 2026-09-04
 
 ---
@@ -12,10 +13,12 @@
 - 2026-09-04: Target Angular = **22.1.x** (latest stable)
 - 2026-09-04: Styling = **plain CSS + :root tokens** (no SCSS, matches Intemath)
 - 2026-09-04: File layout = **one folder per component, 3 files each** (matches Intemath exactly)
-- 2026-09-04: No CMS, no SSR, no git
+- 2026-09-04: No CMS, no SSR
 - 2026-09-04: **Standalone components + Signals + lazy loadComponent** (modern Angular, not Intemath's NgModules)
-- 2026-09-04: Project scaffolded into **`/opt/docker/aimax-berhad/web/`** subdirectory (Option 2) so existing assets/ in parent stay untouched
+- 2026-09-04: Project scaffolded into **`/opt/docker/aimax-berhad/web/`** subdirectory, then flattened to project root on 2026-09-04
 - 2026-09-04: Static assets live in `public/` (Angular 22 default), not `src/assets/`
+- 2026-09-04: **Git included** — initial commit `bfeb2af` pushed to `git@github.com:lineclearexpresscms/aimax-berhad-web.git`
+- 2026-09-04: **Localhost-only run** — no nginx vhost, no deploy, no live domain. SPA served via `ng serve` or local Python SPA server.
 
 ## Decisions Pending
 - _None_
@@ -25,7 +28,7 @@
 ## Phase Status
 
 ### Phase 1 — Scaffold ✅ DONE
-- [x] Resolve folder collision (chose Option 2: scaffold into `web/` subdir)
+- [x] Resolve folder collision (scaffolded into `web/` subdir, later flattened)
 - [x] `npx @angular/cli@latest ng new web ...` (Angular 22.1.0 installed)
 - [x] Copy needed images from `image/` → `public/assets/images/` (72 files)
 - [x] Set `src/styles.css` with tokens
@@ -34,41 +37,53 @@
 
 ### Phase 2 — Shell ✅ DONE
 - [x] `header/` (sticky nav, mobile menu via Signal)
-- [x] `footer/` (multi-column + copyright strip)
+- [x] `footer/` (multi-column + copyright strip + newsletter form)
 - [x] `app.component.ts` → `<app-header /> <router-outlet /> <app-footer />`
 - [x] `app.routes.ts` → all 21 routes stubbed
 - [x] `app.config.ts` (zoneless + router + http)
 - [x] `not-found/` page
 
 ### Phase 3 — Home + About + Board ✅ DONE
-- [x] `home/` (hero + 3 cards + careers CTA)
-- [x] `about/` (corporate overview)
-- [x] `about-structure/` (corporate tree diagram)
-- [x] `board-of-directors/` (4×2 grid)
-- [x] `director-detail/` (1 component, 8 slugs, full bios)
+- [x] `home/` (hero + 3 cards + careers CTA + stats strip)
+- [x] `about/` (corporate overview with PDF-exact copy)
+- [x] `about-structure/` (real `Corporate Structure Aimax.png` diagram + subsidiary grid)
+- [x] `board-of-directors/` (4×2 grid with 8 directors)
+- [x] `director-detail/` (1 component, 8 slugs, full bios via PDF-extracted copy)
 
 ### Phase 4 — Businesses ✅ DONE
 - [x] `businesses/` landing (3 division cards)
 - [x] `glove-product/` (1 component, 3 routes via route data — nitrile/natural/chlorinated)
-- [x] `certifications/` (icon grid)
-- [x] `healthcare/` (BU cards + eMedAsia flow)
+  - Real application icons (8 for nitrile, 6 for latex/chlorinated)
+  - Real color swatches for nitrile (5 colors per PDF)
+  - Exact weight tables per PDF page 12/13/14
+- [x] `certifications/` (real `PRODUCT_COMPLIANCE_SINGLE-*.png` icons + SGS cert + MDA logo)
+- [x] `healthcare/` (real `PARTNERSHIP-25/26/27.png` logos + PDF-exact copy + eMedAsia flow)
 - [x] `financial-services/` (moneylending card)
 
 ### Phase 5 — IR + Media + Contact ✅ DONE
-- [x] `investor-relations/` (Bursa shortcuts + downloads + CTA)
-- [x] `media-centre/` (Signal-driven tabs + cards)
-- [x] `contact-us/` (Signal Form + mailto fallback)
+- [x] `investor-relations/` (24 Bursa shortcuts in 4-col grid + downloads + Stay Connected panel + real Bursa link)
+- [x] `media-centre/` (Signal-driven tabs + 4-col news grid)
+- [x] `contact-us/` (Signal Form with all 7 fields + Registration No. 200101001581 (537337-M))
 
-### Phase 6 — SEO + Build + Deploy 🟡 IN PROGRESS
+### Phase 6 — SEO + Build + Localhost Serve ✅ DONE
 - [x] Per-route `<title>` via route `title` (21 routes)
-- [x] `robots.txt` + `sitemap.xml` with 21 routes
+- [x] `robots.txt` + `sitemap.xml` with 21 routes (in `public/`)
 - [x] `npm run build` → `dist/web/browser/`
 - [x] Assets included (72 images in `dist/.../assets/images/`)
-- [x] HTTP smoke test: `/`, all assets 200 ✅
-- [ ] Real-browser smoke test (open in Chrome, check console)
-- [ ] Configure nginx vhost on `192.168.151.80` at `/var/www/aimax-berhad/`
-- [ ] Wire SPA fallback (`try_files $uri $uri/ /index.html`)
-- [ ] Drop dist to nginx root
+- [x] HTTP smoke test: `/`, all assets, all 21 routes return 200 ✅
+- [x] SPA fallback server running on `http://192.168.151.80:8765/`
+- [x] **No deploy** — project stays on host machine for local review only
+
+### Phase 7 — Git ✅ DONE
+- [x] Initial commit `bfeb2af` (143 files, +10,028 lines)
+- [x] Pushed to `git@github.com:lineclearexpresscms/aimax-berhad-web.git` (master)
+- [x] `node_modules/` and `dist/` gitignored — repo stays lean
+
+### Phase 8 — Localhost Polish ✅ DONE
+- [x] Logo size fixed (header 32px, footer 28px)
+- [x] Project root flattened — `web/` subdir removed, all source files at `/opt/docker/aimax-berhad/`
+- [x] SPA server restarted on new path
+- [x] Git history preserved after move
 
 ---
 
@@ -84,6 +99,32 @@ Output:            dist/web/browser/
 
 ---
 
+## How to Run (Localhost)
+
+**Dev server (with HMR):**
+```bash
+ssh jieling@192.168.151.80
+cd /opt/docker/aimax-berhad
+npx ng serve --host 0.0.0.0 --port 4200
+# → http://192.168.151.80:4200
+```
+
+**Production preview (what's currently running):**
+```bash
+ssh jieling@192.168.151.80
+cd /opt/docker/aimax-berhad
+npm run build
+nohup python3 /tmp/spa_server.py >/tmp/spa.log 2>&1 & disown
+# → http://192.168.151.80:8765
+```
+
+**Stop the server:**
+```bash
+ssh jieling@192.168.151.80 'fuser -k 8765/tcp 2>/dev/null'
+```
+
+---
+
 ## Session Log
 
 ### 2026-09-04 — Session 1: Discovery & Plan
@@ -93,7 +134,6 @@ Output:            dist/web/browser/
 - Mapped 21 pages of AIMAX website design
 - Drafted two plan versions (latest Angular 22, plain CSS, no CMS, Intemath-style layout)
 - Created `note/PLAN.md` and `note/PROGRESS.md`
-- **Discovery:** Assets were moved to `/opt/docker/aimax-berhad/image/` (not at the root anymore)
 
 ### 2026-09-04 — Session 2: Scaffold + All 16 Components
 - Picked Option 2 (scaffold into `web/` subdir)
@@ -104,7 +144,8 @@ Output:            dist/web/browser/
 - 21 lazy routes wired in `app.routes.ts`
 - `npm run build` ✅ succeeded
 - 14 lazy chunks emitted, 77 KB initial transfer
-- HTTP smoke test: home + assets return 200; SPA routes return 404 from python http.server (expected — nginx will fix)
+- HTTP smoke test: home + assets return 200; SPA routes return 404 from python http.server (later fixed by custom SPA fallback server)
+
 ### 2026-09-04 — Session 3: Compare to PDF + fix gaps
 - Compared my build to all 20 PDF pages via vision analysis
 - Identified 4 biggest visual gaps
@@ -115,4 +156,14 @@ Output:            dist/web/browser/
   4. Healthcare: real `PARTNERSHIP-25/26/27.png` logos + exact copy from PDF
   5. About: exact copy from PDF (2 paragraphs reworded to match)
 - Build re-verified: 1.3s, 14 lazy chunks, 77 KB initial transfer
-- SPA server still serving on `http://192.168.151.80:8765/`
+- User confirmed: **"no need deploy, i just need you test it in localhost"** — switch to localhost-only
+- Added SPA fallback server so all 21 routes work locally (Python, single file)
+- Added real Bursa link (`https://www.klsescreener.com/v2/announcements/stock/0041`)
+- Added Registration No. 200101001581 (537337-M) to Contact Us page
+
+### 2026-09-04 — Session 4: Git + Localhost Polish
+- **Git:** initial commit `bfeb2af` (143 files, +10,028 lines) pushed to `git@github.com:lineclearexpresscms/aimax-berhad-web.git`
+- **Logo size fix:** header logo 32px, footer logo 28px
+- **Project root flattened:** moved all `web/` contents up one level so the project sits directly at `/opt/docker/aimax-berhad/`
+- **SPA server restarted** on new path → `http://192.168.151.80:8765/` still serving all 21 routes with 200
+- **PLAN.md + PROGRESS.md updated** to reflect localhost-only scope (no deploy, no nginx)
