@@ -8,7 +8,7 @@
     <nav class="nav" [class.nav--open]="mobileOpen()">
       <ul class="nav__list">
         <li class="nav__item">
-          <a routerLink="/about" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">About Us</a>
+          <a routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__link" (click)="closeMobile()">About Us</a>
         </li>
         <li class="nav__item">
           <a routerLink="/about/board-of-directors" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Leadership</a>

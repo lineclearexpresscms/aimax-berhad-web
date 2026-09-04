@@ -41,6 +41,7 @@
   padding: 8px 4px;
   transition: opacity 0.2s;
   position: relative;
+  white-space: nowrap;
 }
 .nav__link:hover { opacity: 0.7; }
 .nav__link.is-active::after {
@@ -89,5 +90,9 @@
     padding: 14px 0;
     font-size: 1.1rem;
     border-bottom: 1px solid var(--c-bg-alt);
+    white-space: nowrap;
   }
+}
+@media (max-width: 540px) {
+  .header__reg { display: none; }
 }
