@@ -167,3 +167,31 @@ ssh jieling@192.168.151.80 'fuser -k 8765/tcp 2>/dev/null'
 - **Project root flattened:** moved all `web/` contents up one level so the project sits directly at `/opt/docker/aimax-berhad/`
 - **SPA server restarted** on new path → `http://192.168.151.80:8765/` still serving all 21 routes with 200
 - **PLAN.md + PROGRESS.md updated** to reflect localhost-only scope (no deploy, no nginx)
+
+### 2026-09-04 — Session 5: PDF Fidelity Audit + Header Dropdowns
+- **Full PDF audit:** compared all 20 PDF pages against the build via vision analysis
+- **Footer fix:** stripped back from 8 cols to 6 cols (PDF layout: Logo / About us / Businesses / Investor Relations / Media Centre / Corporate HQ). Removed Leadership / Newsletter / Sitemap columns.
+- **Footer Businesses:** relabeled to match PDF wording — "Latex Powder-free Gloves" / Healthcare / Financial Services
+- **IR AGM labels:** updated to exact PDF wording "Summary of Key Matters Discussed at Xth AGM" (was "Xth AGM")
+- **Header dropdowns added** to match footer's 3 sub-items:
+  - **About Us ▾** → Corporate Overview / Corporate Structure / Board of Directors
+  - **Businesses ▾** → Latex Powder-free Gloves / Healthcare / Financial Services
+  - **Investor Relations** → flat (1 item only per PDF)
+  - **Media Centre ▾** → Media Release / Media Coverage / Events / Happenings / Video Gallery
+  - **Contact Us** → flat
+- **Active state propagation:** top-level + sub-items both show the 2px purple `::after` bar when route is current
+- **Cross-component tab nav:** new `shared/media-tab.service.ts` so clicking "Media Release" in header dropdown pre-selects the matching tab on `/media-centre`
+- **Media Centre tabs expanded:** from 2 (Media Release/Coverage + Events) to 4 (added Media Coverage as separate tab, added Video Gallery) — matches PDF footer sub-items
+- **Mobile dropdown styling:** sub-items always visible under parent on mobile, with 1px dividers
+- **Header active state fixes:**
+  - Top-level `About Us` uses `[routerLinkActiveOptions]="{ exact: true }"` so it doesn't match `/about/structure`
+  - Sub-items use `routerLinkActive="is-active"` so the current sub-page gets the underline
+- **Caret arrows removed** on desktop (hover alone signals dropdown)
+- **Mobile underlines removed** by default (only show on hover/focus/active)
+- Final build: 1.3s, 17 JS chunks, 77 KB initial transfer. SPA server still on `:8765`.
+
+### 2026-09-04 — Session 5 ending: ⏸️ ON HOLD
+- User signaled another task — saving current state and pausing AIMAX work
+- All work committed to git (master pushed)
+- SPA server still running on `http://192.168.151.80:8765/` for any further review
+- To resume: just start the session again and reference this PROGRESS.md
