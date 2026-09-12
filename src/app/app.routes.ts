@@ -4,7 +4,6 @@ export const routes: Routes = [
   { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent), title: 'AIMAX Berhad — Home' },
 
   { path: 'about', loadComponent: () => import('./about/about.component').then(m => m.AboutComponent), title: 'About Us — AIMAX Berhad' },
-  { path: 'about/structure', loadComponent: () => import('./about-structure/about-structure.component').then(m => m.AboutStructureComponent), title: 'Corporate Structure — AIMAX Berhad' },
   { path: 'about/board-of-directors', loadComponent: () => import('./board-of-directors/board-of-directors.component').then(m => m.BoardOfDirectorsComponent), title: 'Board of Directors — AIMAX Berhad' },
   { path: 'about/board-of-directors/:slug', loadComponent: () => import('./director-detail/director-detail.component').then(m => m.DirectorDetailComponent), title: 'Director Profile — AIMAX Berhad' },
 
@@ -18,6 +17,7 @@ export const routes: Routes = [
 
   { path: 'investor-relations', loadComponent: () => import('./investor-relations/investor-relations.component').then(m => m.InvestorRelationsComponent), title: 'Investor Relations — AIMAX Berhad' },
   { path: 'media-centre', loadComponent: () => import('./media-centre/media-centre.component').then(m => m.MediaCentreComponent), title: 'Media Centre — AIMAX Berhad' },
+  { path: 'media-centre/:tab', loadComponent: () => import('./media-centre/media-centre.component').then(m => m.MediaCentreComponent), title: 'Media Centre — AIMAX Berhad' },
   { path: 'contact-us', loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent), title: 'Contact Us — AIMAX Berhad' },
 
   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(m => m.NotFoundComponent), title: 'Page Not Found — AIMAX Berhad' }

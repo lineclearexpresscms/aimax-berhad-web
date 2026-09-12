@@ -26,10 +26,10 @@ export class InvestorRelationsComponent {
     { label: 'Annual Report 2021', file: 'AIMAX-Annual-Report-2021.pdf' }
   ];
   agm = [
-    { label: '23rd AGM', file: '23rd-AGM.pdf' },
-    { label: '22nd AGM', file: '22nd-AGM.pdf' },
-    { label: '21st AGM', file: '21st-AGM.pdf' },
-    { label: '20th AGM', file: '20th-AGM.pdf' },
-    { label: '19th AGM', file: '19th-AGM.pdf' }
+    { label: 'Summary of Key Matters Discussed at 23rd AGM', file: '23rd-AGM.pdf' },
+    { label: 'Summary of Key Matters Discussed at 22nd AGM', file: '22nd-AGM.pdf' },
+    { label: 'Summary of Key Matters Discussed at 21st AGM', file: '21st-AGM.pdf' },
+    { label: 'Summary of Key Matters Discussed at 20th AGM', file: '20th-AGM.pdf' },
+    { label: 'Summary of Key Matters Discussed at 19th AGM', file: '19th-AGM.pdf' }
   ];
 }

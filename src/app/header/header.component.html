@@ -2,28 +2,55 @@
   <div class="container header__inner">
     <a routerLink="/" class="header__logo" (click)="closeMobile()">
       <img src="assets/images/AIMAX LOGO-02.png" alt="AIMAX Berhad" />
-      <span class="header__reg">Registration No. 200101001581 (537337-M)</span>
     </a>
 
     <nav class="nav" [class.nav--open]="mobileOpen()">
       <ul class="nav__list">
-        <li class="nav__item">
-          <a routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__link" (click)="closeMobile()">About Us</a>
+        <li class="nav__item nav__item--has-dropdown" (mouseenter)="showDropdown('about')"
+          (mouseleave)="hideDropdown()">
+          <a routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+            class="nav__link" (click)="closeMobile()">About Us<span class="nav__caret" aria-hidden="true">▾</span></a>
+          <ul class="nav__dropdown" [class.nav__dropdown--open]="openDropdown() === 'about'">
+            <li><a routerLink="/about" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav__dropdown-link" (click)="closeMobile()">Corporate Overview</a></li>
+            <li><a routerLink="/about" fragment="structure" routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: false }" class="nav__dropdown-link"
+                (click)="closeMobile()">Corporate Structure</a></li>
+            <li><a routerLink="/about/board-of-directors" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Board of Directors</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--has-dropdown" (mouseenter)="showDropdown('businesses')"
+          (mouseleave)="hideDropdown()">
+          <a routerLink="/businesses" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__link"
+            (click)="closeMobile()">Businesses<span class="nav__caret" aria-hidden="true">▾</span></a>
+          <ul class="nav__dropdown" [class.nav__dropdown--open]="openDropdown() === 'businesses'">
+            <li><a routerLink="/businesses/gloves/nitrile" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Latex Powder-free Gloves</a></li>
+            <li><a routerLink="/businesses/healthcare" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Healthcare</a></li>
+            <li><a routerLink="/businesses/financial-services" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Financial Services</a></li>
+          </ul>
         </li>
         <li class="nav__item">
-          <a routerLink="/about/board-of-directors" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Leadership</a>
+          <a routerLink="/investor-relations" routerLinkActive="is-active" class="nav__link"
+            (click)="closeMobile()">Investor Relations</a>
+        </li>
+        <li class="nav__item nav__item--has-dropdown" (mouseenter)="showDropdown('media')"
+          (mouseleave)="hideDropdown()">
+          <a routerLink="/media-centre" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="nav__link" (click)="closeMobile()">Media
+            Centre<span class="nav__caret" aria-hidden="true">▾</span></a>
+          <ul class="nav__dropdown" [class.nav__dropdown--open]="openDropdown() === 'media'">
+            <li><a routerLink="/media-centre/media" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Media Release / Coverage</a></li>
+            <li><a routerLink="/media-centre/events" routerLinkActive="is-active" class="nav__dropdown-link"
+                (click)="closeMobile()">Event / Happenings</a></li>
+          </ul>
         </li>
         <li class="nav__item">
-          <a routerLink="/businesses" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Businesses</a>
-        </li>
-        <li class="nav__item">
-          <a routerLink="/investor-relations" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Investor Relations</a>
-        </li>
-        <li class="nav__item">
-          <a routerLink="/media-centre" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Media Centre</a>
-        </li>
-        <li class="nav__item">
-          <a routerLink="/contact-us" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Contact Us</a>
+          <a routerLink="/contact-us" routerLinkActive="is-active" class="nav__link" (click)="closeMobile()">Contact
+            Us</a>
         </li>
       </ul>
     </nav>

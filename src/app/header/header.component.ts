@@ -10,9 +10,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   mobileOpen = signal(false);
-  aboutOpen = signal(false);
+  /** Which dropdown is currently open (desktop). null = all closed. */
+  openDropdown = signal<'about' | 'businesses' | 'media' | null>(null);
 
   toggleMobile() { this.mobileOpen.update(v => !v); }
-  closeMobile() { this.mobileOpen.set(false); this.aboutOpen.set(false); }
-  toggleAbout() { this.aboutOpen.update(v => !v); }
+  closeMobile() { this.mobileOpen.set(false); }
+
+  showDropdown(name: 'about' | 'businesses' | 'media') {
+    this.openDropdown.set(name);
+  }
+  hideDropdown() {
+    this.openDropdown.set(null);
+  }
 }

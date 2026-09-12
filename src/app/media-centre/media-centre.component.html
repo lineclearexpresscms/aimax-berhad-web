@@ -3,6 +3,9 @@
     <div class="hero__copy">
       <h1 class="hero__title">Media Centre</h1>
     </div>
+    <div class="hero__image">
+      <img src="assets/images/MEDIA.png" alt="Media Centre" />
+    </div>
   </div>
 </section>
 
@@ -13,6 +16,7 @@
       <button class="tab" [class.tab--active]="tab() === 'events'" (click)="setTab('events')">Events / Happenings</button>
     </div>
 
+    <!--
     @if (tab() === 'release') {
       <div class="media-grid">
         @for (m of release; track m.headline) {
@@ -40,5 +44,10 @@
         }
       </div>
     }
+    -->
+
+    <div class="media-grid__empty">
+      <p>Coming Soon...</p>
+    </div>
   </div>
 </section>

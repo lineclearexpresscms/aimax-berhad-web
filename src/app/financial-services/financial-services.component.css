@@ -27,4 +27,6 @@
 
 @media (max-width: 768px) {
   .finance-grid { grid-template-columns: 1fr; gap: 24px; }
+  .finance-card__title { font-size: 1.4rem; }
+  .finance-card { padding: 24px; }
 }

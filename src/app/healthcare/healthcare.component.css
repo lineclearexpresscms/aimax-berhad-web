@@ -84,3 +84,6 @@
   .bu-grid { grid-template-columns: 1fr; }
   .flow-arrow { display: none; }
 }
+@media (max-width: 768px) {
+  .section-title { font-size: 1.5rem; }
+}

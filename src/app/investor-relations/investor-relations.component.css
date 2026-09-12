@@ -3,7 +3,7 @@
   background: var(--c-primary);
   color: #fff;
   padding: 10px 24px;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   font-weight: 700;
   letter-spacing: 0.04em;
   margin-bottom: 24px;
@@ -24,36 +24,16 @@
 .shortcut:hover { text-decoration: underline; }
 .shortcut__dash { color: var(--c-primary); font-weight: 700; }
 
-.hero__image--center { display: flex; align-items: center; justify-content: center; }
-.coins-graphic {
-  position: relative;
-  width: 240px; height: 240px;
-  display: flex; align-items: center; justify-content: center;
+/* Downloadable Content */
+.downloads-panel {
+  background: var(--c-bg-alt);
+  padding: 32px;
+  border-radius: 0;
 }
-.coin {
-  width: 90px; height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #f6d469, #d4a017);
-  border: 4px solid #b8860b;
-  display: inline-block;
-  position: absolute;
-}
-.coin:nth-child(1) { left: 10px; top: 60px; }
-.coin:nth-child(2) { left: 70px; top: 80px; }
-.coin:nth-child(3) { left: 130px; top: 60px; }
-.arrow-up {
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  color: #f6d469;
-  font-weight: 900;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 .downloads-title {
-  color: var(--c-primary);
+  color: var(--c-text);
   font-size: 1rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   margin-bottom: 24px;
   text-transform: uppercase;
@@ -65,9 +45,9 @@
 }
 .downloads-card {
   background: #fff;
-  border-radius: var(--radius-card);
+  border-radius: 0;
   padding: 24px;
-  border: 1px solid var(--c-bg-alt);
+  border: none;
 }
 .downloads-card__title {
   color: var(--c-primary);
@@ -86,29 +66,40 @@
   background: var(--c-primary);
   color: #fff;
   padding: 6px 16px;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 .download-btn:hover { background: var(--c-primary-dark); }
 
-.cta-banner { background: var(--c-bg-alt); text-align: center; }
+/* CTA panel */
+.cta-panel {
+  background: var(--c-bg-alt);
+  padding: 32px;
+  text-align: left;
+  border-radius: 0;
+}
 .cta-banner__title { color: var(--c-primary); font-size: 1.5rem; margin-bottom: 8px; }
-.cta-banner__sub { color: var(--c-primary); font-weight: 700; margin-bottom: 16px; }
-.cta-banner__text { color: var(--c-text-muted); max-width: 720px; margin: 0 auto 24px; line-height: 1.7; }
+.cta-banner__sub { color: var(--c-primary); font-weight: 700; font-style: normal; margin-bottom: 16px; }
+.cta-banner__text { color: var(--c-text-muted); line-height: 1.7; text-align: left; margin-bottom: 24px; }
+.cta-banner__text a { color: var(--c-primary); text-decoration: underline; }
 .cta-banner__btn {
   display: inline-block;
   background: var(--c-primary);
   color: #fff;
   padding: 14px 48px;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
+.cta-banner__btn:hover { background: var(--c-primary-dark); }
 
 @media (max-width: 1024px) { .shortcuts-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
   .shortcuts-grid { grid-template-columns: 1fr; }
   .downloads-grid { grid-template-columns: 1fr; }
+  .cta-panel { text-align: center; }
 }
+
+.section { padding: clamp(28px, 4vw, 48px) 0; }

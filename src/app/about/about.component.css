@@ -8,9 +8,38 @@
 .overview__body {
   max-width: 880px;
   margin: 0 auto;
-  color: var(--c-text);
+  color: #432f85;
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.5;
 }
-.overview__body p { margin-bottom: 20px; }
-.overview__body strong { color: var(--c-primary); }
+.overview__body p { margin-bottom: 12px; }
+.overview__body strong { color: #432f85; font-weight: 700; }
+
+/* Hero title — keep light for this page */
+.hero__title {
+  font-weight: 300;
+}
+
+/* Corporate Overview section */
+.overview {
+  padding-bottom: 0;
+}
+
+/* Corporate Structure section */
+.structure {
+  padding-bottom: 0;
+}
+.structure__diagram {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+.structure__diagram img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .section-title { font-size: 1.5rem; }
+}

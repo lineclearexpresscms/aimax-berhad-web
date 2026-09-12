@@ -35,3 +35,7 @@
   .profile-card { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
   .profile-card__photo { max-width: 240px; margin: 0 auto; }
 }
+@media (max-width: 480px) {
+  .profile-card { padding: 16px; gap: 16px; }
+  .profile-card__name { font-size: 1.25rem; }
+}

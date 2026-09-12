@@ -195,3 +195,39 @@ ssh jieling@192.168.151.80 'fuser -k 8765/tcp 2>/dev/null'
 - All work committed to git (master pushed)
 - SPA server still running on `http://192.168.151.80:8765/` for any further review
 - To resume: just start the session again and reference this PROGRESS.md
+
+---
+
+### 2026-09-08 — Session 6: Media Centre Tabs Unique Routes
+- **Bug fix:** all 4 Media Centre sub-items pointed to `/media-centre`, so on that page every sub-item got the `is-active` underline bar
+- **Fix:** each sub-item now uses a unique URL — `/media-centre/release`, `/media-centre/coverage`, `/media-centre/events`, `/media-centre/video`. Updated `app.routes.ts` to add `:tab` param route. `MediaCentreComponent` reads `:tab` from `ActivatedRoute` and syncs state with the URL.
+- Removed unused `MediaTabService` (the URL does the routing now)
+- Build clean, all routes 200
+
+### 2026-09-08 — Session 6 cont.: Header dropdown UX fix
+- **Bug:** clicking `About Us` kept its dropdown open via `:focus-within` even after mouse-over to `Businesses`
+- **Fix:** switched from CSS-only `:hover`/`@media` rules to Angular signal-driven open/close via `(mouseenter)` and `(mouseleave)` events on each `<li class="nav__item--has-dropdown">`. Only one dropdown can be open at a time.
+
+### 2026-09-08 — Session 6 cont.: Hero image polish
+- `.hero__image img` `max-height: 360px` → `520px`
+- `aspect-ratio: 2092 / 1386` so the hero image displays at its native 3:2 landscape ratio (no distortion)
+- `.hero__title` `font-weight: 700` → `300` (light/thin)
+- `.hero .container { padding: 0 }` — flush edges (no horizontal gap between title and image)
+
+### 2026-09-08 — Session 6 cont.: Divisions grid fill + responsive
+- `.divisions__grid` → `clamp(280px, 40vh, 520px)` height, `min-height: 320px`
+- `.division-card` → `position: relative; height: 100%`
+- `.division-card__image` → `position: absolute; inset: 0` (full-bleed image, fills entire card)
+- Added tablet breakpoint `@media (max-width: 1024px)` so hero stacks vertically on tablets
+- Same breakpoint for `.divisions__grid`: stacks vertically on tablet, `height: auto`
+
+### 2026-09-08 — Session 6 cont.: Hero padding
+- `.hero { padding: clamp(80px, 12vw, 160px) 0 }` → `clamp(80px, 12vw, 100px) 0` (more compact)
+
+### 2026-09-08 — Session 6: PHASE 9 — Merge Corporate Overview + Structure (IN PROGRESS)
+- **User request:** merge the two separate pages into ONE `/about` page. Header layout stays the same, only the redirect link for the now-removed "Corporate Structure" sub-item changes.
+- **Plan updated** (`note/PLAN.md`): Phase 9 added documenting the change
+- **Routes to remove:** `/about/structure` (and `AboutStructureComponent`)
+- **About dropdown after:** Corporate Overview (`/about`) + Board of Directors (`/about/board-of-directors`) — 2 items only
+- **Footer "Corporate Structure" link** → `/about` (was `/about/structure`)
+- **Subagent dispatched** to extract verbatim PDF copy + image list from both PDF sections

@@ -105,10 +105,9 @@ export const routes: Routes = [
   { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
     title: 'AIMAX Berhad — Home' },
 
+  // About Us — Corporate Overview + Corporate Structure merged into ONE page (/about)
   { path: 'about', loadComponent: () => import('./about/about.component').then(m => m.AboutComponent),
     title: 'About Us — AIMAX Berhad' },
-  { path: 'about/structure', loadComponent: () => import('./about-structure/about-structure.component').then(m => m.AboutStructureComponent),
-    title: 'Corporate Structure — AIMAX Berhad' },
   { path: 'about/board-of-directors', loadComponent: () => import('./board-of-directors/board-of-directors.component').then(m => m.BoardOfDirectorsComponent),
     title: 'Board of Directors — AIMAX Berhad' },
   { path: 'about/board-of-directors/:slug', loadComponent: () => import('./director-detail/director-detail.component').then(m => m.DirectorDetailComponent),
@@ -267,3 +266,39 @@ Remote: `git@github.com:lineclearexpresscms/aimax-berhad-web.git`
 - `node_modules/` is 250MB and `dist/` is 33MB — both gitignored, repo stays small.
 - The repo on GitHub is empty/private — confirm visibility before sharing.
 - macOS/Windows users can also `git clone` and run `npm install` + `ng serve` locally; no remote server needed.
+
+---
+
+## Phase 9 — Merge Corporate Overview + Corporate Structure (2026-09-08)
+
+**Decision:** Per user request, merge the Corporate Overview page (`/about`) and the Corporate Structure page (`/about/structure`) into ONE page at `/about`. The header layout does not change — only the redirect link for the (now-removed) "Corporate Structure" sub-item.
+
+**Before:**
+```
+About Us ▾
+├── Corporate Overview       → /about
+├── Corporate Structure      → /about/structure    ← REMOVED
+└── Board of Directors       → /about/board-of-directors
+```
+
+**After:**
+```
+About Us ▾
+├── Corporate Overview       → /about              ← now includes both sections
+└── Board of Directors       → /about/board-of-directors
+```
+
+**Implementation:**
+- `AboutComponent` (`/about`) → now contains both the company intro copy AND the corporate structure section (subsidiary grid + the `Corporate Structure Aimax.png` diagram)
+- `AboutStructureComponent` deleted from the codebase
+- `/about/structure` route removed from `app.routes.ts`
+- `footer` "About Us" column: "Corporate Structure" link → `/about` (was `/about/structure`)
+- `header` About dropdown: only 2 sub-items now (Overview + Board of Directors)
+- PDF copy source: pages with Corporate Overview section + Corporate Structure section, both extracted verbatim
+
+**Why:** The two sections are tightly related (overview introduces the group, structure shows how it's organized). One page gives a single coherent reading flow.
+
+**Files changed:** `src/app/about/about.component.{ts,html,css}`, `src/app/app.routes.ts`, `src/app/header/header.component.html`, `src/app/footer/footer.component.html`
+**Files removed:** `src/app/about-structure/` (3 files)
+
+---

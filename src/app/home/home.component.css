@@ -2,6 +2,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  min-height: 320px;
+  height: 480px;
+}
+@media (max-width: 1024px) {
+  .divisions__grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    height: auto;
+  }
 }
 .division-card {
   display: block;
@@ -10,14 +19,16 @@
   background: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  height: 100%;
 }
 .division-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 .division-card__image {
-  position: relative;
-  aspect-ratio: 4 / 3;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   background: var(--c-bg-alt);
 }
@@ -104,6 +115,12 @@
 .stats__cta:hover { transform: translateY(-2px); }
 
 @media (max-width: 900px) {
-  .divisions__grid { grid-template-columns: 1fr; }
+  .divisions__grid { grid-template-columns: 1fr; height: auto; }
   .careers__grid { grid-template-columns: 1fr; gap: 32px; }
+  .division-card { height: 280px; }
+  .division-card__image img { object-fit: contain; }
+}
+@media (max-width: 480px) {
+  .stats__quote { font-size: 1.2rem; }
+  .careers__title { font-size: 1.5rem; }
 }

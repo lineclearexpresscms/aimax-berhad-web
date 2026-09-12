@@ -3,11 +3,8 @@
     <div class="hero__copy">
       <h1 class="hero__title">Investor Relations</h1>
     </div>
-    <div class="hero__image hero__image--center">
-      <div class="coins-graphic" aria-hidden="true">
-        <span class="coin"></span><span class="coin"></span><span class="coin"></span>
-        <span class="arrow-up">↗</span>
-      </div>
+    <div class="hero__image">
+      <img src="assets/images/INVESTOR.png" alt="Investor Relations" />
     </div>
   </div>
 </section>
@@ -26,39 +23,43 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
   <div class="container">
-    <h2 class="downloads-title">Downloadable Content</h2>
-    <div class="downloads-grid">
-      <div class="downloads-card">
-        <h3 class="downloads-card__title">Annual Report</h3>
-        @for (r of reports; track r.label) {
-          <div class="downloads-row">
-            <span>{{ r.label }}</span>
-            <a class="download-btn" href="assets/documents/{{ r.file }}" download>DOWNLOAD</a>
-          </div>
-        }
-      </div>
-      <div class="downloads-card">
-        <h3 class="downloads-card__title">Summary of Key Matter Discussed</h3>
-        @for (a of agm; track a.label) {
-          <div class="downloads-row">
-            <span>{{ a.label }}</span>
-            <a class="download-btn" href="assets/documents/{{ a.file }}" download>DOWNLOAD</a>
-          </div>
-        }
+    <div class="downloads-panel">
+      <h2 class="downloads-title">Downloadable Content</h2>
+      <div class="downloads-grid">
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Annual Report</h3>
+          @for (r of reports; track r.label) {
+            <div class="downloads-row">
+              <span>{{ r.label }}</span>
+              <a class="download-btn" href="assets/documents/{{ r.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Summary of Key Matter Discussed</h3>
+          @for (a of agm; track a.label) {
+            <div class="downloads-row">
+              <span>{{ a.label }}</span>
+              <a class="download-btn" href="assets/documents/{{ a.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-banner section">
+<section class="section">
   <div class="container">
-    <h2 class="cta-banner__title">Stay connected with our Investor news in Bursa Malaysia website</h2>
-    <p class="cta-banner__sub"><em>Caution concerning forward looking statements</em></p>
-    <p class="cta-banner__text">
-      For the most current investor information, please refer to AIMAX's dedicated Investor Relations page on Bursa Malaysia (stock code 0041), our corporate blog, and social media channels. Information is updated regularly.
-    </p>
-    <a href="https://bursa.listedcompany.com/home.html" target="_blank" rel="noopener" class="cta-banner__btn">VISIT BURSA</a>
+    <div class="cta-panel">
+      <h2 class="cta-banner__title">Stay connected with our Investor news in Bursa Malaysia website</h2>
+      <p class="cta-banner__sub"><strong>Caution concerning forward looking statements</strong></p>
+      <p class="cta-banner__text">
+        AIMAX's Investor Relations website at <a href="https://www.aimax.com.my/investor-relations" target="_blank" rel="noopener">www.aimax.com.my/investor-relations</a> and our corporate blog at <a href="https://www.aimax.com.my/media-centre" target="_blank" rel="noopener">www.aimax.com.my/media-centre</a>, AIMAX's social media accounts and AIMAX's Bursa index page at <a href="https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=0041" target="_blank" rel="noopener">https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=0041</a> contain a significant amount of information about AIMAX, including financial and other information for investors. AIMAX encourages investors to visit these websites from time to time, as information is updated and new information is posted.
+      </p>
+      <a href="https://bursa.listedcompany.com/home.html" target="_blank" rel="noopener" class="cta-banner__btn">VISIT BURSA</a>
+    </div>
   </div>
 </section>
