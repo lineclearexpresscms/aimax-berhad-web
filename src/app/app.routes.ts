@@ -8,12 +8,9 @@ export const routes: Routes = [
   { path: 'about/board-of-directors/:slug', loadComponent: () => import('./director-detail/director-detail.component').then(m => m.DirectorDetailComponent), title: 'Director Profile — AIMAX Berhad' },
 
   { path: 'businesses', loadComponent: () => import('./businesses/businesses.component').then(m => m.BusinessesComponent), title: 'Our Businesses — AIMAX Berhad' },
-  { path: 'businesses/gloves/nitrile', loadComponent: () => import('./glove-product/glove-product.component').then(m => m.GloveProductComponent), data: { product: 'nitrile' }, title: 'Nitrile Examination Gloves — AIMAX' },
-  { path: 'businesses/gloves/natural-latex', loadComponent: () => import('./glove-product/glove-product.component').then(m => m.GloveProductComponent), data: { product: 'natural' }, title: 'Natural Latex Gloves — AIMAX' },
-  { path: 'businesses/gloves/chlorinated-latex', loadComponent: () => import('./glove-product/glove-product.component').then(m => m.GloveProductComponent), data: { product: 'chlorinated' }, title: 'Chlorinated Latex Gloves — AIMAX' },
-  { path: 'businesses/gloves/certifications', loadComponent: () => import('./certifications/certifications.component').then(m => m.CertificationsComponent), title: 'Certifications — AIMAX Gloves' },
   { path: 'businesses/healthcare', loadComponent: () => import('./healthcare/healthcare.component').then(m => m.HealthcareComponent), title: 'Healthcare — AIMAX Berhad' },
   { path: 'businesses/financial-services', loadComponent: () => import('./financial-services/financial-services.component').then(m => m.FinancialServicesComponent), title: 'Financial Services — AIMAX Berhad' },
+  { path: 'businesses/manufacturing', loadComponent: () => import('./manufacturing/manufacturing.component').then(m => m.ManufacturingComponent), title: 'Glove Manufacturing — AIMAX Berhad' },
 
   { path: 'investor-relations', loadComponent: () => import('./investor-relations/investor-relations.component').then(m => m.InvestorRelationsComponent), title: 'Investor Relations — AIMAX Berhad' },
   { path: 'media-centre', loadComponent: () => import('./media-centre/media-centre.component').then(m => m.MediaCentreComponent), title: 'Media Centre — AIMAX Berhad' },

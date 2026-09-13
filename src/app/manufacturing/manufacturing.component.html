@@ -1,0 +1,437 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__title">Glove Manufacturing</h1>
+    </div>
+    <div class="hero__image">
+      <img src="assets/images/Nitrile Glove.png" alt="Glove Manufacturing" />
+    </div>
+  </div>
+</section>
+
+
+<div class="tab-bar">
+  <div class="container">
+    <nav class="tabs">
+      <button class="tab" [class.tab--active]="activeTab() === 'nitrile'" (click)="setTab('nitrile')">Nitrile
+        Examination Glove</button>
+      <button class="tab" [class.tab--active]="activeTab() === 'natural'" (click)="setTab('natural')">Natural Rubber
+        Polymer Latex</button>
+      <button class="tab" [class.tab--active]="activeTab() === 'chlorinated'" (click)="setTab('chlorinated')">Natural
+        Rubber Chlorinated Latex</button>
+      <button class="tab" [class.tab--active]="activeTab() === 'certifications'"
+        (click)="setTab('certifications')">Certifications</button>
+    </nav>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div class="container">
+
+    <!-- NITRILE EXAMINATION GLOVE -->
+    @if (activeTab() === 'nitrile') {
+    <div class="product-hero">
+      <div class="product-hero__copy">
+        <span class="product-badge">Powder Free</span>
+        <h2 class="product-hero__title">Nitrile Examination Glove</h2>
+        <p class="product-hero__subtitle">100% Synthetic Nitrile Latex</p>
+      </div>
+      <div class="product-hero__image">
+        <img src="assets/images/Nitrile Glove.png" alt="Nitrile Examination Glove" />
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4 class="spec-card__title">Specifications</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>100% Synthetic Nitrile Butadiene Rubber</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Type</dt>
+              <dd>Powder Free, Non-Sterile</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Weight Range</dt>
+              <dd>3.5g (Available for customization)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Design</dt>
+              <dd>Ambidextrous, finger or palm textured, beaded cuff</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Finishing</dt>
+              <dd>Online single chlorinated or offline double chlorinated</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Packaging</dt>
+              <dd>100 Gloves/Dispenser, 10 Dispenser/Case, 1000 Gloves/Case</dd>
+            </div>
+          </dl>
+
+          <h4 class="spec-card__title dim-title">Physical Dimension</h4>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 240mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of nitrile.length240; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 290mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of nitrile.length290; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h4 class="spec-card__title">Available Sizes &amp; Palm Width</h4>
+          <div class="size-table">
+            <div class="size-header">
+              <span>Size</span><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span>
+            </div>
+            <div class="size-row"><span>Palm Width</span><span>75 ±5mm</span><span>85 ±5mm</span><span>95
+                ±5mm</span><span>105 ±5mm</span><span>115 ±5mm</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Available Colours</h4>
+          <div class="color-chips">
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-10.png" alt="Regular Blue"
+                class="color-img" /><span class="color-dot" style="background:#2563EB"></span><span
+                class="color-label">Regular <br>Blue</span></div>
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-11.png" alt="Violet Blue"
+                class="color-img" /><span class="color-dot" style="background:#7C3AED"></span><span
+                class="color-label">Violet <br>Blue</span></div>
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-08.png" alt="Black"
+                class="color-img" /><span class="color-dot" style="background:#111827"></span><span
+                class="color-label">Black</span></div>
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-09.png" alt="White"
+                class="color-img" /><span class="color-dot color-dot--white" style="background:#F9FAFB"></span><span
+                class="color-label">White</span></div>
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-12.png" alt="Green"
+                class="color-img" /><span class="color-dot" style="background:#16A34A"></span><span
+                class="color-label">Green</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Physical Properties</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Force at Break</dt>
+              <dd>Min 6.0 N</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Elongation at Break</dt>
+              <dd>Min 500% (before aged)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Tensile Strength</dt>
+              <dd>Min 14 MPa (before aged)</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <h4 class="section-sub-title">Product Applications</h4>
+      <div class="app-grid">
+        @for (app of nitrile.applications; track app.label) {
+        <div class="app-item">
+          <img [src]="app.img" [alt]="app.label" class="app-icon" />
+          <span class="app-label">{{ app.label }}</span>
+        </div>
+        }
+      </div>
+    </section>
+    }
+
+    <!-- NATURAL RUBBER POLYMER LATEX -->
+    @if (activeTab() === 'natural') {
+    <div class="product-hero">
+      <div class="product-hero__copy">
+        <span class="product-badge">Powder Free</span>
+        <h2 class="product-hero__title">Natural Rubber Polymer Latex</h2>
+        <p class="product-hero__subtitle">Examination Gloves</p>
+      </div>
+      <div class="product-hero__image">
+        <img src="assets/images/Polymer Latex Glove.png" alt="Natural Rubber Polymer Latex" />
+      </div>
+    </div>
+    <section class="section">
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4 class="spec-card__title">Specifications</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>Natural High Grade Rubber Latex</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Type</dt>
+              <dd>Powder Free, Non-Sterile</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Weight Range</dt>
+              <dd>3.5g (Available for customization)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Design</dt>
+              <dd>Ambidextrous, finger or palm textured, beaded cuff</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Finishing</dt>
+              <dd>Online single polymer coated / offline double polymer coated</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Packaging</dt>
+              <dd>100 Gloves/Dispenser, 10 Dispenser/Case, 1000 Gloves/Case</dd>
+            </div>
+          </dl>
+
+          <h4 class="spec-card__title dim-title">Physical Dimension</h4>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 240mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of natural.length240; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 290mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of natural.length290; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h4 class="spec-card__title">Available Sizes &amp; Palm Width</h4>
+          <div class="size-table">
+            <div class="size-header">
+              <span>Size</span><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span>
+            </div>
+            <div class="size-row"><span>Palm Width</span><span>75 ±5mm</span><span>85 ±5mm</span><span>95
+                ±5mm</span><span>105 ±5mm</span><span>115 ±5mm</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Available Colours</h4>
+          <div class="color-chips">
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-51.png" alt="Natural Off-White"
+                class="color-img" /><span class="color-dot color-dot--offwhite" style="background:#F5F0E8"></span><span
+                class="color-label">Natural Off-White</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Physical Properties</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Force at Break</dt>
+              <dd>Min 6.0 N</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Elongation at Break</dt>
+              <dd>Min 650% (before aged)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Tensile Strength</dt>
+              <dd>Min 18 MPa (before aged)</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <h4 class="section-sub-title">Product Applications</h4>
+      <div class="app-grid">
+        @for (app of natural.applications; track app.label) {
+        <div class="app-item">
+          <img [src]="app.img" [alt]="app.label" class="app-icon" />
+          <span class="app-label">{{ app.label }}</span>
+        </div>
+        }
+      </div>
+    </section>
+    }
+
+    <!-- NATURAL RUBBER CHLORINATED LATEX -->
+    @if (activeTab() === 'chlorinated') {
+    <div class="product-hero">
+      <div class="product-hero__copy">
+        <span class="product-badge">Powder Free</span>
+        <h2 class="product-hero__title">Natural Rubber Chlorinated Latex</h2>
+        <p class="product-hero__subtitle">Examination Gloves</p>
+      </div>
+      <div class="product-hero__image">
+        <img src="assets/images/Chlorinated Latex Glove.png" alt="Natural Rubber Chlorinated Latex" />
+      </div>
+    </div>
+    <section class="section">
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4 class="spec-card__title">Specifications</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>Natural High Grade Rubber Latex</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Type</dt>
+              <dd>Powder Free, Non-Sterile</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Weight Range</dt>
+              <dd>3.5g (Available for customization)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Design</dt>
+              <dd>Ambidextrous, finger or palm textured, beaded cuff</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Finishing</dt>
+              <dd>Online single chlorinated</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Packaging</dt>
+              <dd>100 Gloves/Dispenser, 10 Dispenser/Case, 1000 Gloves/Case</dd>
+            </div>
+          </dl>
+
+          <h4 class="spec-card__title dim-title">Physical Dimension</h4>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 240mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of chlorinated.length240; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+          <div class="dim-section">
+            <p class="dim-length">Length: min 290mm</p>
+            <div class="dim-table">
+              <div class="dim-header">
+                <span>Weight</span><span>Cuff(mm)</span><span>Palm(mm)</span><span>Finger(mm)</span>
+              </div>
+              @for (row of chlorinated.length290; track row.weight) {
+              <div class="dim-row"><span>{{ row.weight }}</span><span>{{ row.cuff }}</span><span>{{ row.palm
+                  }}</span><span>{{ row.finger }}</span></div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h4 class="spec-card__title">Available Sizes &amp; Palm Width</h4>
+          <div class="size-table">
+            <div class="size-header">
+              <span>Size</span><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span>
+            </div>
+            <div class="size-row"><span>Palm Width</span><span>75 ±5mm</span><span>85 ±5mm</span><span>95
+                ±5mm</span><span>105 ±5mm</span><span>115 ±5mm</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Available Colours</h4>
+          <div class="color-chips">
+            <div class="color-img-wrap"><img src="assets/images/NITRILE GLOVES-51.png" alt="Natural Off-White"
+                class="color-img" /><span class="color-dot color-dot--offwhite" style="background:#F5F0E8"></span><span
+                class="color-label">Natural Off-White</span></div>
+          </div>
+
+          <h4 class="spec-card__title" style="margin-top:24px">Physical Properties</h4>
+          <dl class="spec-list">
+            <div class="spec-row">
+              <dt>Force at Break</dt>
+              <dd>Min 6.0 N</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Elongation at Break</dt>
+              <dd>Min 650% (before aged)</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Tensile Strength</dt>
+              <dd>Min 18 MPa (before aged)</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <h4 class="section-sub-title">Product Applications</h4>
+      <div class="app-grid">
+        @for (app of chlorinated.applications; track app.label) {
+        <div class="app-item">
+          <img [src]="app.img" [alt]="app.label" class="app-icon" />
+          <span class="app-label">{{ app.label }}</span>
+        </div>
+        }
+      </div>
+    </section>
+    }
+
+    <!-- CERTIFICATIONS -->
+    @if (activeTab() === 'certifications') {
+      <div class="product-hero">
+        <div class="product-hero__copy">
+          <h2 class="product-hero__title">Product Certifications</h2>
+        </div>
+        <div class="product-hero__image">
+          <img src="assets/images/CERTIFICATIONS.png" alt="Certifications" />
+        </div>
+      </div>
+
+      <!-- Facility Certification -->
+      <div class="cert-card">
+        <h3 class="cert-card__title">Facility Certification</h3>
+        <div class="cert-hero-badges">
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-39.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-40.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-41.png" class="cert-badge" />
+        </div>
+      </div>
+
+      <!-- Product Conformance -->
+      <div class="cert-card">
+        <h3 class="cert-card__title">Product Conformance</h3>
+        <div class="cert-hero-badges">
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-41.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-43.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-40.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-19.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-46.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-47.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-20.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-21.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-22.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-42.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-48.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-44.png" class="cert-badge" />
+          <img src="assets/images/PRODUCT_COMPLIANCE_SINGLE-45.png" class="cert-badge" />
+        </div>
+      </div>
+    }
+  </div>
+</div>

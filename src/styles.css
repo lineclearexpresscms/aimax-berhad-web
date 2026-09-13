@@ -42,7 +42,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* Section helpers */
-.section { padding: var(--space-section) 0; }
+.section { padding: 0; margin-top: 32px; margin-bottom: 32px; }
 .section--alt { background: var(--c-bg-alt); }
 
 /* Hero base */
