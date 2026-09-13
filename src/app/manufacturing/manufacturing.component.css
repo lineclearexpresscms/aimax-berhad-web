@@ -205,8 +205,8 @@
   .tab-bar .container { padding: 0 16px; }
 }
 .app-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
 }
 .app-item {
@@ -215,12 +215,11 @@
   align-items: center;
   gap: 6px;
   background: var(--c-bg-alt);
-  padding: 12px 8px;
+  padding: 16px 12px;
   border-radius: var(--radius-card);
-  min-width: 80px;
 }
 .app-icon {
-  height: 36px;
+  height: 56px;
   width: auto;
   object-fit: contain;
 }
