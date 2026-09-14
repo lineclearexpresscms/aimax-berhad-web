@@ -12,11 +12,11 @@
 <section class="section">
   <div class="container">
     <div class="badge">BURSA SHORTCUTS</div>
-    <div class="shortcuts-grid">
-      @for (s of shortcuts; track s) {
-        <a href="https://www.klsescreener.com/v2/announcements/stock/0041" target="_blank" rel="noopener" class="shortcut">
-          <span class="shortcut__dash">—</span>
-          <span>{{ s }}</span>
+    <div class="shortcuts-grid shortcuts-grid--4">
+      @for (s of shortcuts; track s.title) {
+        <a [href]="s.url" target="_blank" rel="noopener" class="shortcut">
+          <span class="shortcut__icon">→</span>
+          <span>{{ s.title }}</span>
         </a>
       }
     </div>
@@ -28,24 +28,97 @@
     <div class="downloads-panel">
       <h2 class="downloads-title">Downloadable Content</h2>
       <div class="downloads-grid">
+
         <div class="downloads-card">
           <h3 class="downloads-card__title">Annual Report</h3>
-          @for (r of reports; track r.label) {
+          @for (r of annualReports; track r.label) {
             <div class="downloads-row">
               <span>{{ r.label }}</span>
-              <a class="download-btn" href="assets/documents/{{ r.file }}" download>DOWNLOAD</a>
+              <a class="download-btn" href="downloads/{{ r.file }}" download>DOWNLOAD</a>
             </div>
           }
         </div>
+
         <div class="downloads-card">
-          <h3 class="downloads-card__title">Summary of Key Matter Discussed</h3>
-          @for (a of agm; track a.label) {
+          <h3 class="downloads-card__title">Summary of Key Matters Discussed</h3>
+          @for (a of agmSummary; track a.label) {
             <div class="downloads-row">
               <span>{{ a.label }}</span>
-              <a class="download-btn" href="assets/documents/{{ a.file }}" download>DOWNLOAD</a>
+              <a class="download-btn" href="downloads/{{ a.file }}" download>DOWNLOAD</a>
             </div>
           }
         </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">RRPT Circular</h3>
+          @for (r of rrptCircular; track r.label) {
+            <div class="downloads-row">
+              <span>{{ r.label }}</span>
+              <a class="download-btn" href="downloads/{{ r.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Corporate Governance</h3>
+          @for (c of corporateGovernance; track c.label) {
+            <div class="downloads-row">
+              <span>{{ c.label }}</span>
+              <a class="download-btn" href="downloads/{{ c.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Annual General Meeting</h3>
+          @for (a of agmNotices; track a.label) {
+            <div class="downloads-row">
+              <span>{{ a.label }}</span>
+              <a class="download-btn" href="downloads/{{ a.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Board Charter</h3>
+          @for (b of boardCharter; track b.label) {
+            <div class="downloads-row">
+              <span>{{ b.label }}</span>
+              <a class="download-btn" href="downloads/{{ b.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Code of Conduct and Ethics</h3>
+          @for (c of codeOfConduct; track c.label) {
+            <div class="downloads-row">
+              <span>{{ c.label }}</span>
+              <a class="download-btn" href="downloads/{{ c.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Terms of Reference</h3>
+          @for (t of termsOfReference; track t.label) {
+            <div class="downloads-row">
+              <span>{{ t.label }}</span>
+              <a class="download-btn" href="downloads/{{ t.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
+        <div class="downloads-card">
+          <h3 class="downloads-card__title">Policy</h3>
+          @for (p of policies; track p.label) {
+            <div class="downloads-row">
+              <span>{{ p.label }}</span>
+              <a class="download-btn" href="downloads/{{ p.file }}" download>DOWNLOAD</a>
+            </div>
+          }
+        </div>
+
       </div>
     </div>
   </div>
@@ -59,7 +132,7 @@
       <p class="cta-banner__text">
         AIMAX's Investor Relations website at <a href="https://www.aimax.com.my/investor-relations" target="_blank" rel="noopener">www.aimax.com.my/investor-relations</a> and our corporate blog at <a href="https://www.aimax.com.my/media-centre" target="_blank" rel="noopener">www.aimax.com.my/media-centre</a>, AIMAX's social media accounts and AIMAX's Bursa index page at <a href="https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=0041" target="_blank" rel="noopener">https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=0041</a> contain a significant amount of information about AIMAX, including financial and other information for investors. AIMAX encourages investors to visit these websites from time to time, as information is updated and new information is posted.
       </p>
-      <a href="https://bursa.listedcompany.com/home.html" target="_blank" rel="noopener" class="cta-banner__btn">VISIT BURSA</a>
+      <a href="https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=0041" target="_blank" rel="noopener" class="cta-banner__btn">VISIT BURSA</a>
     </div>
   </div>
 </section>

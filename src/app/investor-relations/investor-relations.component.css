@@ -23,6 +23,7 @@
 }
 .shortcut:hover { text-decoration: underline; }
 .shortcut__dash { color: var(--c-primary); font-weight: 700; }
+.shortcut__icon { color: var(--c-text-muted); font-size: 0.75rem; }
 
 /* Downloadable Content */
 .downloads-panel {
