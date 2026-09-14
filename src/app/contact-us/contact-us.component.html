@@ -51,6 +51,7 @@
               Comments or Questions *
               <textarea rows="5" required [value]="model().comments" (input)="update('comments', $any($event.target).value)"></textarea>
             </label>
+            @if (error()) {<div class="error-msg">{{ error() }}</div>}
             <button type="submit" class="submit-btn">Submit</button>
           </form>
         } @else {

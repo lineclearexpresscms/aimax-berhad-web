@@ -87,3 +87,12 @@
   .contact-card { grid-template-columns: 1fr; padding: 24px; gap: 32px; }
   .contact-info { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid rgba(0, 0, 0, 0.1); }
 }
+
+.error-msg {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}

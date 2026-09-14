@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,6 +15,9 @@ export class ContactUsComponent {
     email: '', phone: '', comments: ''
   });
   submitted = signal(false);
+  error = signal('');
+
+  constructor(private http: HttpClient) {}
 
   update<K extends keyof ReturnType<typeof this.model>>(key: K, value: string) {
     this.model.update(m => ({ ...m, [key]: value }));
@@ -21,10 +25,13 @@ export class ContactUsComponent {
 
   submit(event: Event) {
     event.preventDefault();
-    if (this.isValid()) {
-      this.submitted.set(true);
-      // Place real submit endpoint here. Falls back to mailto:
-    }
+    if (!this.isValid()) return;
+
+    const apiUrl = 'http://localhost:8000/api/contact';
+    this.http.post(apiUrl, this.model()).subscribe({
+      next: () => this.submitted.set(true),
+      error: () => this.error.set('Failed to send message. Please try again.')
+    });
   }
 
   isValid() {
