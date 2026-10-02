@@ -17,16 +17,21 @@
 }
 .finance-card__title {
   color: var(--c-primary);
-  font-size: 1.75rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
   margin-bottom: 16px;
 }
 .finance-card__text {
   color: var(--c-primary);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   line-height: 1.8;
 }
 
 @media (max-width: 768px) {
   .finance-grid { grid-template-columns: 1fr; gap: 24px; }
-  .finance-card__title { font-size: 1.4rem; }
+  .finance-card__title { font-size: clamp(1.2rem, 3vw, 1.4rem); }
   .finance-card { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .finance-card { padding: 16px; }
+  .finance-card__title { font-size: 1.1rem; }
 }

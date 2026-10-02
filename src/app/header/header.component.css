@@ -187,3 +187,8 @@
 @media (max-width: 540px) {
   .header__reg { display: none; }
 }
+
+/* Very small — hide company reg */
+@media (max-width: 480px) {
+  .header__logo img { height: 26px; }
+}

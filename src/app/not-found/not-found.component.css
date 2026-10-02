@@ -4,9 +4,11 @@
   min-height: 60vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .not-found__code {
-  font-size: clamp(5rem, 12vw, 9rem);
+  font-size: clamp(4rem, 12vw, 9rem);
   color: var(--c-primary);
   font-weight: 800;
   line-height: 1;
@@ -14,12 +16,13 @@
 .not-found__title {
   color: var(--c-primary);
   margin-top: 16px;
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 .not-found__msg {
   color: var(--c-text-muted);
   margin: 16px auto 32px;
   max-width: 480px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
 }
 .not-found__cta {
   display: inline-block;
@@ -28,5 +31,13 @@
   padding: 12px 32px;
   border-radius: var(--radius-pill);
   font-weight: 600;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
 }
 .not-found__cta:hover { background: var(--c-primary-dark); }
+
+@media (max-width: 480px) {
+  .not-found { padding: 64px 0; }
+  .not-found__title { font-size: 1.1rem; }
+  .not-found__msg { font-size: 0.875rem; }
+  .not-found__cta { padding: 10px 24px; }
+}

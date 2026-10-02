@@ -42,12 +42,12 @@
   color: #fff;
 }
 .division-card__title {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: 700;
   margin-bottom: 4px;
 }
 .division-card__tagline {
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.875rem);
   opacity: 0.9;
 }
 
@@ -63,4 +63,12 @@
   .division-card__image img {
     object-fit: contain;
   }
+}
+@media (max-width: 600px) {
+  .division-card { height: 240px; }
+  .division-card__body { padding: 16px; }
+  .division-card__title { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .division-card { height: 200px; }
 }

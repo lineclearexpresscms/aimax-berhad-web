@@ -7,6 +7,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   margin-bottom: 24px;
+  font-size: clamp(0.8rem, 1.2vw, 0.875rem);
 }
 .shortcuts-grid {
   display: grid;
@@ -18,12 +19,12 @@
   gap: 8px;
   align-items: baseline;
   color: var(--c-primary);
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.875rem);
   padding: 4px 0;
 }
 .shortcut:hover { text-decoration: underline; }
 .shortcut__dash { color: var(--c-primary); font-weight: 700; }
-.shortcut__icon { color: var(--c-text-muted); font-size: 0.75rem; }
+.shortcut__icon { color: var(--c-text-muted); font-size: clamp(0.7rem, 1vw, 0.75rem); }
 
 /* Downloadable Content */
 .downloads-panel {
@@ -33,7 +34,7 @@
 }
 .downloads-title {
   color: var(--c-text);
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   margin-bottom: 24px;
@@ -53,7 +54,7 @@
 .downloads-card__title {
   color: var(--c-primary);
   margin-bottom: 16px;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
 }
 .downloads-row {
   display: flex;
@@ -61,14 +62,14 @@
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid var(--c-bg-alt);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
 }
 .download-btn {
   background: var(--c-primary);
   color: #fff;
   padding: 6px 16px;
   border-radius: 0;
-  font-size: 0.75rem;
+  font-size: clamp(0.7rem, 1vw, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -81,9 +82,9 @@
   text-align: left;
   border-radius: 0;
 }
-.cta-banner__title { color: var(--c-primary); font-size: 1.5rem; margin-bottom: 8px; }
-.cta-banner__sub { color: var(--c-primary); font-weight: 700; font-style: normal; margin-bottom: 16px; }
-.cta-banner__text { color: var(--c-text-muted); line-height: 1.7; text-align: left; margin-bottom: 24px; }
+.cta-banner__title { color: var(--c-primary); font-size: clamp(1.2rem, 2vw, 1.5rem); margin-bottom: 8px; }
+.cta-banner__sub { color: var(--c-primary); font-weight: 700; font-style: normal; margin-bottom: 16px; font-size: clamp(0.875rem, 1.2vw, 1rem); }
+.cta-banner__text { color: var(--c-text-muted); line-height: 1.7; text-align: left; margin-bottom: 24px; font-size: clamp(0.8rem, 1.2vw, 0.9rem); }
 .cta-banner__text a { color: var(--c-primary); text-decoration: underline; }
 .cta-banner__btn {
   display: inline-block;
@@ -93,14 +94,24 @@
   border-radius: 0;
   font-weight: 700;
   letter-spacing: 0.04em;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
 }
 .cta-banner__btn:hover { background: var(--c-primary-dark); }
 
-@media (max-width: 1024px) { .shortcuts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1024px) {
+  .shortcuts-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
   .shortcuts-grid { grid-template-columns: 1fr; }
   .downloads-grid { grid-template-columns: 1fr; }
   .cta-panel { text-align: center; }
+  .cta-banner__text { text-align: center; }
+  .downloads-panel { padding: 20px; }
+}
+@media (max-width: 480px) {
+  .badge { font-size: 0.75rem; padding: 8px 16px; }
+  .downloads-panel { padding: 16px; }
+  .downloads-card { padding: 16px; }
 }
 
 .section { padding: clamp(28px, 4vw, 48px) 0; }
