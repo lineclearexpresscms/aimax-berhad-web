@@ -16,14 +16,21 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+}
 body {
   font-family: var(--font-sans);
-  overflow-x: hidden;
   font-size: 1rem;
   color: var(--c-text);
   background: var(--c-bg);
   line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100%;
 }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
@@ -42,7 +49,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  overflow-x: hidden;
   padding: clamp(80px, 12vw, 100px) 0;
 }
 .hero--teal { background: var(--c-secondary); }

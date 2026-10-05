@@ -60,6 +60,8 @@
   background: var(--c-bg-alt);
   border-bottom: 1px solid var(--c-border);
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 .tab-bar .container {
   max-width: var(--max-width);
@@ -93,10 +95,10 @@
 /* ============================================
    TAB CONTENT
    ============================================ */
-.tab-content { padding-bottom: 0; }
+.tab-content { width: 100%; max-width: var(--max-width); margin: 0 auto; }
 .tab-content > .container {
   padding-top: 24px;
-  padding-bottom: 64px;
+  padding-bottom: 80px;
 }
 
 /* ============================================
@@ -113,6 +115,7 @@
   border-radius: var(--radius-card);
   padding: 24px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  overflow: visible;
 }
 .spec-card__title {
   font-size: clamp(0.875rem, 1.2vw, 0.95rem);
@@ -137,17 +140,25 @@
 .dim-table {
   border: 1px solid var(--c-border);
   border-radius: 4px;
-  overflow: hidden;
-  font-size: 0.8rem;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.8rem;
+  table-layout: fixed;
+  width: 100%;
 }
-.dim-header, .dim-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; min-width: 300px; }
+.dim-table::-webkit-scrollbar { height: 4px; }
+.dim-table::-webkit-scrollbar-track { background: var(--c-bg-alt); border-radius: 2px; }
+.dim-table::-webkit-scrollbar-thumb { background: var(--c-primary); border-radius: 2px; }
+.dim-header, .dim-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; }
 .dim-header { background: var(--c-primary); color: #fff; font-weight: 700; }
 .dim-header span, .dim-row span {
   padding: 7px 8px;
   text-align: center;
   border-right: 1px solid rgba(255,255,255,0.2);
   font-size: clamp(0.7rem, 1vw, 0.8rem);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .dim-header span:first-child, .dim-row span:first-child { text-align: left; padding-left: 8px; }
 .dim-row span:first-child { font-weight: 600; color: var(--c-text); }
@@ -160,18 +171,26 @@
 .size-table {
   border: 1px solid var(--c-border);
   border-radius: var(--radius-sm);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   font-size: 0.8rem;
   margin-top: 8px;
-  overflow-x: auto;
+  table-layout: fixed;
+  width: 100%;
 }
-.size-header, .size-row { display: grid; grid-template-columns: 1fr repeat(5, 1fr); min-width: 400px; }
+.size-table::-webkit-scrollbar { height: 4px; }
+.size-table::-webkit-scrollbar-track { background: var(--c-bg-alt); border-radius: 2px; }
+.size-table::-webkit-scrollbar-thumb { background: var(--c-primary); border-radius: 2px; }
+.size-header, .size-row { display: grid; grid-template-columns: 1fr repeat(5, 1fr); }
 .size-header { background: var(--c-primary); color: #fff; font-weight: 700; }
 .size-header span, .size-row span {
   padding: 8px 6px;
   text-align: center;
   border-right: 1px solid rgba(255,255,255,0.2);
   font-size: clamp(0.7rem, 1vw, 0.8rem);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .size-row span:first-child { text-align: left; padding-left: 8px; font-weight: 500; color: var(--c-text-muted); background: var(--c-bg-alt); }
 .size-row span { background: #fff; }
@@ -275,7 +294,11 @@
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
+.cert-hero-badges::-webkit-scrollbar { height: 3px; }
+.cert-hero-badges::-webkit-scrollbar-track { background: var(--c-bg-alt); }
+.cert-hero-badges::-webkit-scrollbar-thumb { background: var(--c-primary); }
 .cert-badge {
   max-height: 80px;
   width: auto;
@@ -335,7 +358,7 @@
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 20px;
-  overflow: hidden;
+  overflow: visible;
 }
 .cert-card__title {
   font-size: clamp(1rem, 1.5vw, 1.1rem);
@@ -349,7 +372,11 @@
   gap: 12px;
   align-items: center;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
+.cert-card .cert-hero-badges::-webkit-scrollbar { height: 3px; }
+.cert-card .cert-hero-badges::-webkit-scrollbar-track { background: var(--c-bg-alt); }
+.cert-card .cert-hero-badges::-webkit-scrollbar-thumb { background: var(--c-primary); }
 .cert-card .cert-badge {
   max-height: 70px;
   width: auto;
@@ -362,7 +389,7 @@
    ============================================ */
 @media (max-width: 1024px) {
   .tab-bar .container { padding: 0 20px; }
-  .tab-content > .container { padding: 20px 20px 48px; }
+  .tab-content > .container { padding: 20px 20px 64px; }
 
   .product-hero {
     grid-template-columns: 5fr 4fr;
@@ -376,8 +403,8 @@
   .spec-row { grid-template-columns: 110px 1fr; gap: 8px; font-size: 0.8rem; }
   .spec-card__title { font-size: 0.875rem; }
 
-  .size-header, .size-row { min-width: 380px; }
-  .dim-header, .dim-row { min-width: 290px; }
+
+
 
   .app-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .app-item { padding: 10px 8px; }
@@ -416,29 +443,29 @@
    MOBILE 768px
    ============================================ */
 @media (max-width: 768px) {
-  .tab-content > .container { padding: 16px 16px 48px; }
+  .tab-content > .container { padding: 16px 16px 64px; }
 
   .product-hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 24px 16px;
+    padding: 20px 16px;
     gap: 16px;
   }
   .product-hero__copy { padding-left: 0; align-items: center; }
   .product-hero__image { order: -1; }
   .product-badge { margin: 0 auto; }
-  .product-hero__image img { max-height: 100px; }
+  .product-hero__image img { max-height: 90px; }
 
-  .specs-grid { grid-template-columns: 1fr; gap: 16px; }
-  .spec-card { padding: 16px; }
-  .spec-card__title { font-size: 0.875rem; }
-  .spec-row { grid-template-columns: 100px 1fr; gap: 8px; font-size: 0.8rem; }
+  .specs-grid { grid-template-columns: 1fr; gap: 12px; }
+  .spec-card { padding: 14px; }
+  .spec-card__title { font-size: 0.875rem; margin-bottom: 12px; }
+  .spec-row { grid-template-columns: 95px 1fr; gap: 6px; font-size: 0.8rem; }
 
-  .size-header, .size-row { min-width: 360px; }
+
   .size-header span, .size-row span { font-size: 0.75rem; padding: 6px 4px; }
 
-  .dim-header, .dim-row { min-width: 280px; }
-  .dim-header span, .dim-row span { font-size: 0.75rem; padding: 6px 4px; }
+
+  .dim-header span, .dim-row span { font-size: 0.75rem; padding: 6px 4px; min-width: 55px; }
 
   .color-img { height: 80px; }
   .color-chips { gap: 8px; }
@@ -450,11 +477,9 @@
 
   .section-sub-title { font-size: 1rem; }
 
-  .cert-card { padding: 16px; }
-  .cert-badge { max-height: 60px; }
-  .cert-card .cert-badge { max-height: 55px; }
-  .cert-hero-badges { overflow-x: auto; }
-  .cert-card .cert-hero-badges { overflow-x: auto; }
+  .cert-card { padding: 14px; margin-bottom: 14px; }
+  .cert-badge { max-height: 55px; }
+  .cert-card .cert-badge { max-height: 50px; }
 
   .conformance__grid { grid-template-columns: repeat(2, 1fr); }
   .conformance__tile { padding: 12px 6px; }
@@ -465,48 +490,51 @@
    SMALL PHONE 600px
    ============================================ */
 @media (max-width: 600px) {
-  .spec-row { grid-template-columns: 90px 1fr; font-size: 0.75rem; }
+  .spec-row { grid-template-columns: 85px 1fr; font-size: 0.75rem; }
   .app-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
   .app-icon { height: 32px; }
   .app-label { font-size: 0.55rem; }
   .conformance__tile img { max-height: 48px; }
+  .conformance__tile h4 { font-size: 0.75rem; }
 }
 
 /* ============================================
    SMALL PHONE 480px
    ============================================ */
 @media (max-width: 480px) {
-  .product-hero { padding: 20px 16px; gap: 12px; }
-  .product-hero__title { font-size: 1.2rem; }
+  .product-hero { padding: 16px 16px; gap: 12px; }
+  .product-hero__title { font-size: 1.15rem; }
   .product-hero__subtitle { font-size: 0.8rem; }
-  .product-hero__image img { max-height: 80px; }
+  .product-hero__image img { max-height: 75px; }
 
-  .spec-row { grid-template-columns: 85px 1fr; gap: 6px; font-size: 0.75rem; }
+  .specs-grid { gap: 10px; }
   .spec-card { padding: 12px; }
-  .spec-card__title { font-size: 0.8rem; margin-bottom: 12px; }
+  .spec-card__title { font-size: 0.8rem; margin-bottom: 10px; }
+  .spec-row { grid-template-columns: 80px 1fr; gap: 4px; font-size: 0.75rem; }
   .dim-title { margin-top: 16px; }
-  .dim-section { margin-top: 8px; }
-  .dim-length { font-size: 0.75rem; }
+  .dim-section { margin-top: 10px; }
+  .dim-length { font-size: 0.75rem; margin-bottom: 4px; }
 
-  .size-header, .size-row { min-width: 320px; }
-  .size-header span, .size-row span { font-size: 0.7rem; padding: 5px 3px; }
 
-  .dim-header, .dim-row { min-width: 240px; }
-  .dim-header span, .dim-row span { font-size: 0.7rem; padding: 5px 3px; }
+  .size-header span, .size-row span { font-size: 0.7rem; padding: 5px 3px; min-width: 44px; }
+
+
+  .dim-header span, .dim-row span { font-size: 0.7rem; padding: 5px 3px; min-width: 50px; }
 
   .color-img { height: 65px; }
   .color-chips { gap: 6px; }
 
   .app-grid { grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 6px; }
+  .app-item { padding: 8px 4px; }
   .app-icon { height: 28px; }
   .app-label { font-size: 0.55rem; }
 
   .section-sub-title { font-size: 0.9rem; margin-bottom: 12px; }
 
-  .cert-card { padding: 12px; margin-bottom: 16px; }
-  .cert-card__title { font-size: 0.9rem; margin-bottom: 12px; }
-  .cert-badge { max-height: 50px; }
-  .cert-card .cert-badge { max-height: 45px; }
+  .cert-card { padding: 12px; margin-bottom: 12px; }
+  .cert-card__title { font-size: 0.9rem; margin-bottom: 10px; }
+  .cert-badge { max-height: 45px; }
+  .cert-card .cert-badge { max-height: 42px; }
   .cert-hero-badges { gap: 8px; }
   .cert-card .cert-hero-badges { gap: 8px; }
 
@@ -521,12 +549,13 @@
    VERY SMALL PHONE 375px
    ============================================ */
 @media (max-width: 375px) {
-  .spec-row { grid-template-columns: 75px 1fr; }
-  .size-header, .size-row { min-width: 280px; }
-  .dim-header, .dim-row { min-width: 220px; }
+  .spec-card { padding: 10px; }
+  .spec-row { grid-template-columns: 72px 1fr; }
+
+
   .color-img { height: 55px; }
-  .app-grid { grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); }
+  .app-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
   .app-icon { height: 26px; }
-  .cert-badge { max-height: 44px; }
-  .cert-card .cert-badge { max-height: 40px; }
+  .cert-badge { max-height: 40px; }
+  .cert-card .cert-badge { max-height: 38px; }
 }
