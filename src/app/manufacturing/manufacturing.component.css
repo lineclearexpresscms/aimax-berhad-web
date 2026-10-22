@@ -166,6 +166,52 @@
 .dim-row:nth-child(even) span { background: var(--c-bg-alt); }
 
 /* ============================================
+   PHYSICAL PROPERTIES TABLE
+   ============================================ */
+.margin-top-24 { margin-top: 24px; }
+.prop-table {
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  overflow-x: auto;
+  width: 100%;
+}
+.prop-table__title {
+  background: var(--c-primary);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.prop-table__row { display: grid; grid-template-columns: 1.1fr 1.05fr 1fr; align-items: center; background: var(--c-bg-alt); }
+.prop-table__row + .prop-table__row { border-top: 1px solid #d9d9e0; }
+.prop-table__row span {
+  padding: 13px 8px;
+  text-align: center;
+  font-size: clamp(0.75rem, 0.95vw, 0.85rem);
+  color: var(--c-text);
+  white-space: nowrap;
+  min-width: 0;
+}
+.prop-table__row span:first-child {
+  text-align: left;
+  padding-left: 14px;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+}
+.prop-table::-webkit-scrollbar { height: 4px; }
+.prop-table::-webkit-scrollbar-track { background: var(--c-bg-alt); border-radius: 2px; }
+.prop-table::-webkit-scrollbar-thumb { background: var(--c-primary); border-radius: 2px; }
+
+@media (max-width: 768px) {
+  .prop-table__row { grid-template-columns: 1.1fr 1.05fr 1fr; }
+  .prop-table__row span { font-size: 0.65rem; padding: 8px 4px; }
+  .prop-table__row span:first-child { font-size: 0.7rem; }
+}
+
+/* ============================================
    SIZE TABLE
    ============================================ */
 .size-table {

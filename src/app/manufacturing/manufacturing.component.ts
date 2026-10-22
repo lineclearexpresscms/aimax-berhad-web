@@ -15,13 +15,14 @@ export class ManufacturingComponent {
 
   nitrile = {
     length240: [
+      { weight: '3.0g', cuff: 0.04, palm: 0.05, finger: 0.06 },
       { weight: '3.5g', cuff: 0.05, palm: 0.06, finger: 0.09 },
+      { weight: '4.0g', cuff: 0.06, palm: 0.08, finger: 0.12 },
       { weight: '4.5g', cuff: 0.06, palm: 0.08, finger: 0.12 },
-      { weight: '5.0g', cuff: 0.06, palm: 0.08, finger: 0.12 },
-      { weight: '6.8g', cuff: 0.10, palm: 0.12, finger: 0.14 },
     ],
     length290: [
       { weight: '5.5g', cuff: 0.08, palm: 0.09, finger: 0.12 },
+      { weight: '6.0g', cuff: 0.08, palm: '0.10', finger: 0.13 },
     ],
     applications: [
       { label: 'Medical & Healthcare', img: 'assets/images/Healthcare 2 Icon.png' },
@@ -38,7 +39,7 @@ export class ManufacturingComponent {
   natural = {
     length240: [
       { weight: '5.0g', cuff: 0.07, palm: 0.09, finger: '0.10' },
-      { weight: '5.5g', cuff: 0.08, palm: 0.09, finger: '0.10'},
+      { weight: '5.5g', cuff: 0.08, palm: 0.09, finger: '0.10' },
       { weight: '6.0g', cuff: 0.08, palm: 0.11, finger: '0.12' },
       { weight: '6.5g', cuff: 0.08, palm: 0.11, finger: '0.12' },
     ],

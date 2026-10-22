@@ -14,51 +14,55 @@
     <div class="contact-card">
       <div class="contact-card__col">
         <h2 class="contact-card__title">General Inquiry or Feedback</h2>
-        <p class="contact-card__intro">Thank you for your interest in AIMAX. Fields marked with an asterisk (*) are required.</p>
+        <p class="contact-card__intro">Thank you for your interest in AIMAX. Fields marked with an asterisk (*) are
+          required.</p>
 
         @if (!submitted()) {
-          <form class="contact-form" (submit)="submit($event)">
-            <label>
-              What is your relationship with AIMAX? *
-              <input type="text" required [value]="model().relationship" (input)="update('relationship', $any($event.target).value)" />
-            </label>
-            <label>
-              Subject *
-              <input type="text" required [value]="model().subject" (input)="update('subject', $any($event.target).value)" />
-            </label>
-            <label>
-              Area of interest *
-              <input type="text" required [value]="model().area" (input)="update('area', $any($event.target).value)" />
-            </label>
-            <label>
-              Select your location
-              <select [value]="model().location" (change)="update('location', $any($event.target).value)">
-                <option value="">-- Please choose --</option>
-                <option value="my">Malaysia</option>
-                <option value="sg">Singapore</option>
-                <option value="intl">International</option>
-              </select>
-            </label>
-            <label>
-              Email Address *
-              <input type="email" required [value]="model().email" (input)="update('email', $any($event.target).value)" />
-            </label>
-            <label>
-              Phone Number *
-              <input type="tel" required [value]="model().phone" (input)="update('phone', $any($event.target).value)" />
-            </label>
-            <label>
-              Comments or Questions *
-              <textarea rows="5" required [value]="model().comments" (input)="update('comments', $any($event.target).value)"></textarea>
-            </label>
-            @if (error()) {<div class="error-msg">{{ error() }}</div>}
-            <button type="submit" class="submit-btn">Submit</button>
-          </form>
+        <form class="contact-form" (submit)="submit($event)">
+          <label>
+            What is your relationship with AIMAX? *
+            <input type="text" required [value]="model().relationship"
+              (input)="update('relationship', $any($event.target).value)" />
+          </label>
+          <label>
+            Subject *
+            <input type="text" required [value]="model().subject"
+              (input)="update('subject', $any($event.target).value)" />
+          </label>
+          <label>
+            Area of interest *
+            <input type="text" required [value]="model().area" (input)="update('area', $any($event.target).value)" />
+          </label>
+          <label>
+            Select your location
+            <select [value]="model().location" (change)="update('location', $any($event.target).value)">
+              <option value="">-- Please choose --</option>
+              <option value="my">Malaysia</option>
+              <option value="sg">Singapore</option>
+              <option value="intl">International</option>
+            </select>
+          </label>
+          <label>
+            Email Address *
+            <input type="email" required [value]="model().email" (input)="update('email', $any($event.target).value)" />
+          </label>
+          <label>
+            Phone Number *
+            <input type="tel" required [value]="model().phone" (input)="update('phone', $any($event.target).value)" />
+          </label>
+          <label>
+            Comments or Questions *
+            <textarea rows="5" required [value]="model().comments"
+              (input)="update('comments', $any($event.target).value)"></textarea>
+          </label>
+          @if (error()) {<div class="error-msg">{{ error() }}</div>}
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
         } @else {
-          <div class="success-msg">
-            <h3>Thank you!</h3>
-            <p>Your message has been received. We'll get back to you shortly.</p>
-          </div>
+        <div class="success-msg">
+          <h3>Thank you!</h3>
+          <p>Your message has been received. We'll get back to you shortly.</p>
+        </div>
         }
       </div>
 
@@ -74,7 +78,7 @@
         </div>
 
         <div class="contact-block">
-          <h3>Aimax Healthcare Sdn Bhd</h3>
+          <h3>AIMAX Healthcare Sdn Bhd</h3>
           <p>Registration No.: 202001022653 (1378973-A)</p>
           <p>Email: <a href="mailto:marketing@aimax.com.my">marketing@aimax.com.my</a></p>
         </div>
