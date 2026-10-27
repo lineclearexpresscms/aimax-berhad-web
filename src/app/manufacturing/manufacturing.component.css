@@ -13,6 +13,8 @@
   border-radius: var(--radius-card);
   overflow: hidden;
 }
+/* Natural Rubber + Chlorinated tabs use the teal accent */
+.product-hero--teal { background: #00a8b0; }
 .product-hero__copy {
   display: flex;
   flex-direction: column;
@@ -89,6 +91,27 @@
 }
 .tab--active, .tab:hover {
   background: var(--c-primary);
+  color: #fff;
+}
+/* Natural Rubber + Natural (chlorinated) tabs use the teal accent
+   for their border/text, and teal fill on hover and when active. */
+.tab--teal {
+  border-color: #00a8b0;
+  color: #00a8b0;
+}
+.tab--teal:hover {
+  background: #00a8b0;
+  border-color: #00a8b0;
+  color: #fff;
+}
+.tab--active-teal {
+  background: #00a8b0;
+  border-color: #00a8b0;
+  color: #fff;
+}
+.tab--active-teal:hover {
+  background: #00a8b0;
+  border-color: #00a8b0;
   color: #fff;
 }
 
@@ -169,46 +192,101 @@
    PHYSICAL PROPERTIES TABLE
    ============================================ */
 .margin-top-24 { margin-top: 24px; }
+
+/* Matches the .size-table / .dim-table look: purple header row,
+   white body rows with alternating tint, thin column separators. */
 .prop-table {
   border: 1px solid var(--c-border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  table-layout: fixed;
   width: 100%;
-}
-.prop-table__title {
-  background: var(--c-primary);
-  color: #fff;
-  font-weight: 700;
-  text-align: center;
-  padding: 10px;
-  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.prop-table__row { display: grid; grid-template-columns: 1.1fr 1.05fr 1fr; align-items: center; background: var(--c-bg-alt); }
-.prop-table__row + .prop-table__row { border-top: 1px solid #d9d9e0; }
-.prop-table__row span {
-  padding: 13px 8px;
-  text-align: center;
-  font-size: clamp(0.75rem, 0.95vw, 0.85rem);
-  color: var(--c-text);
-  white-space: nowrap;
-  min-width: 0;
-}
-.prop-table__row span:first-child {
-  text-align: left;
-  padding-left: 14px;
-  font-weight: 700;
-  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
 }
 .prop-table::-webkit-scrollbar { height: 4px; }
 .prop-table::-webkit-scrollbar-track { background: var(--c-bg-alt); border-radius: 2px; }
 .prop-table::-webkit-scrollbar-thumb { background: var(--c-primary); border-radius: 2px; }
 
+.prop-table__row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; align-items: center; }
+.prop-table__row + .prop-table__row { border-top: 1px solid var(--c-border); }
+.prop-table__row span {
+  padding: 8px 6px;
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  color: var(--c-text);
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.35;
+  min-width: 0;
+  background: #fff;
+}
+.prop-table__row span:last-child { border-right: none; }
+.prop-table__row span:first-child {
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 600;
+  color: var(--c-text);
+  background: var(--c-bg-alt);
+}
+
+/* Column header (Property | Before Aged | After Aged) */
+.prop-table__row--head { background: var(--c-primary); }
+.prop-table__row--head span {
+  background: var(--c-primary);
+  color: #fff;
+  font-weight: 700;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.prop-table__row--head span:first-child {
+  background: var(--c-primary);
+  color: #fff;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* Alternating row tint, same rhythm as .dim-row */
+.prop-table__row:nth-child(odd):not(.prop-table__row--head) span { background: #fff; }
+.prop-table__row:nth-child(even):not(.prop-table__row--head) span { background: var(--c-bg-alt); }
+
+@media (max-width: 1024px) {
+  /* Tablet: keep all 3 columns, just tighten type and padding. */
+  .prop-table__row { grid-template-columns: 1.2fr 1fr 1fr; }
+  .prop-table__row span { font-size: 0.7rem; padding: 7px 4px; }
+  .prop-table__row span:first-child {
+    grid-column: auto;
+    text-align: left;
+    padding-left: 8px;
+    font-size: 0.72rem;
+  }
+  .prop-table__row--head span { font-size: 0.66rem; }
+  .prop-table__row--head span:first-child { padding-left: 8px; }
+}
+
 @media (max-width: 768px) {
-  .prop-table__row { grid-template-columns: 1.1fr 1.05fr 1fr; }
-  .prop-table__row span { font-size: 0.65rem; padding: 8px 4px; }
-  .prop-table__row span:first-child { font-size: 0.7rem; }
+  .prop-table__row { grid-template-columns: 1.15fr 1fr 1fr; }
+  .prop-table__row span { font-size: 0.68rem; padding: 7px 4px; }
+  .prop-table__row span:first-child { font-size: 0.7rem; padding: 7px 4px; padding-left: 8px; }
+  .prop-table__row--head span { font-size: 0.64rem; }
+  .prop-table__row--head span:first-child { padding-left: 8px; }
+}
+
+@media (max-width: 480px) {
+  .prop-table__row { grid-template-columns: 1.1fr 1fr 1fr; }
+  .prop-table__row span { font-size: 0.64rem; padding: 6px 3px; }
+  .prop-table__row span:first-child { font-size: 0.66rem; padding: 6px 3px; padding-left: 6px; }
+  .prop-table__row--head span { font-size: 0.6rem; }
+  .prop-table__row--head span:first-child { padding-left: 6px; }
+}
+
+@media (max-width: 375px) {
+  .prop-table__row { grid-template-columns: 1.05fr 1fr 1fr; }
+  .prop-table__row span { font-size: 0.6rem; padding: 5px 2px; }
+  .prop-table__row span:first-child { font-size: 0.62rem; padding: 5px 2px; padding-left: 5px; }
+  .prop-table__row--head span { font-size: 0.56rem; }
+  .prop-table__row--head span:first-child { padding-left: 5px; }
 }
 
 /* ============================================
@@ -270,6 +348,32 @@
   color: var(--c-primary);
   margin-bottom: 20px;
 }
+
+/* ============================================
+   TEAL THEME — Natural Rubber + Natural (chlorinated) tabs
+   Scoped to .section--teal so only those two panels use the accent.
+   ============================================ */
+.section--teal .spec-card__title { color: #00a8b0; }
+.section--teal .section-sub-title { color: #00a8b0; }
+
+.section--teal .size-header,
+.section--teal .dim-header,
+.section--teal .prop-table__row--head { background: #00a8b0; }
+
+.section--teal .size-header span,
+.section--teal .dim-header span,
+.section--teal .prop-table__row--head span {
+  background: #00a8b0;
+  color: #fff;
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
+.section--teal .prop-table__row--head span:first-child { background: #00a8b0; }
+
+.section--teal .size-table::-webkit-scrollbar-thumb,
+.section--teal .dim-table::-webkit-scrollbar-thumb,
+.section--teal .prop-table::-webkit-scrollbar-thumb { background: #00a8b0; }
+
+.section--teal .app-item { background: rgba(0, 168, 176, 0.08); }
 
 /* ============================================
    APP GRID
@@ -346,7 +450,7 @@
 .cert-hero-badges::-webkit-scrollbar-track { background: var(--c-bg-alt); }
 .cert-hero-badges::-webkit-scrollbar-thumb { background: var(--c-primary); }
 .cert-badge {
-  max-height: 80px;
+  max-height: 110px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -415,7 +519,7 @@
 .cert-card .cert-hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 20px;
   align-items: center;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -424,7 +528,7 @@
 .cert-card .cert-hero-badges::-webkit-scrollbar-track { background: var(--c-bg-alt); }
 .cert-card .cert-hero-badges::-webkit-scrollbar-thumb { background: var(--c-primary); }
 .cert-card .cert-badge {
-  max-height: 70px;
+  max-height: 110px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -461,8 +565,8 @@
   .conformance__tile { padding: 14px 8px; }
   .conformance__tile img { max-height: 60px; }
 
-  .cert-badge { max-height: 70px; }
-  .cert-card .cert-badge { max-height: 60px; }
+  .cert-badge { max-height: 105px; }
+  .cert-card .cert-badge { max-height: 100px; }
   .cert-card { padding: 16px; }
 }
 
@@ -481,8 +585,8 @@
   .conformance__grid { grid-template-columns: repeat(2, 1fr); }
   .conformance__tile img { max-height: 55px; }
 
-  .cert-badge { max-height: 60px; }
-  .cert-card .cert-badge { max-height: 55px; }
+  .cert-badge { max-height: 100px; }
+  .cert-card .cert-badge { max-height: 95px; }
 }
 
 /* ============================================
@@ -524,8 +628,8 @@
   .section-sub-title { font-size: 1rem; }
 
   .cert-card { padding: 14px; margin-bottom: 14px; }
-  .cert-badge { max-height: 55px; }
-  .cert-card .cert-badge { max-height: 50px; }
+  .cert-badge { max-height: 90px; }
+  .cert-card .cert-badge { max-height: 85px; }
 
   .conformance__grid { grid-template-columns: repeat(2, 1fr); }
   .conformance__tile { padding: 12px 6px; }
@@ -579,8 +683,8 @@
 
   .cert-card { padding: 12px; margin-bottom: 12px; }
   .cert-card__title { font-size: 0.9rem; margin-bottom: 10px; }
-  .cert-badge { max-height: 45px; }
-  .cert-card .cert-badge { max-height: 42px; }
+  .cert-badge { max-height: 75px; }
+  .cert-card .cert-badge { max-height: 70px; }
   .cert-hero-badges { gap: 8px; }
   .cert-card .cert-hero-badges { gap: 8px; }
 
@@ -602,6 +706,6 @@
   .color-img { height: 55px; }
   .app-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
   .app-icon { height: 26px; }
-  .cert-badge { max-height: 40px; }
-  .cert-card .cert-badge { max-height: 38px; }
+  .cert-badge { max-height: 65px; }
+  .cert-card .cert-badge { max-height: 60px; }
 }

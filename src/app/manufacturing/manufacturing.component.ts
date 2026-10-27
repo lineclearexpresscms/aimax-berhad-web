@@ -48,12 +48,12 @@ export class ManufacturingComponent {
       { weight: '8.5g', cuff: 0.08, palm: 0.11, finger: 0.13 },
     ],
     applications: [
-      { label: 'Healthcare', img: 'assets/images/Healthcare 2 Icon.png' },
-      { label: 'Laboratory', img: 'assets/images/Lab Icon.png' },
-      { label: 'Food Handling', img: 'assets/images/F&B Icon.png' },
-      { label: 'Dental', img: 'assets/images/Dentist Icon.png' },
-      { label: 'General Use', img: 'assets/images/General Use 2 Icon.png' },
-      { label: 'Cleaning and Maintenance Purposes', img: 'assets/images/Cleaning 2 Icon.png' },
+      { label: 'Healthcare', img: 'assets/images/Healthcare Icon.png' },
+      { label: 'Laboratory', img: 'assets/images/Laboratory Icon.png' },
+      { label: 'Food Handling', img: 'assets/images/F&B 2 Icon.png' },
+      { label: 'Dental', img: 'assets/images/Dentist 2 Icon.png' },
+      { label: 'General Use', img: 'assets/images/General Use Icon.png' },
+      { label: 'Cleaning and Maintenance Purposes', img: 'assets/images/Cleaning Icon.png' },
     ]
   };
 
@@ -69,12 +69,12 @@ export class ManufacturingComponent {
       { weight: '8.5g', cuff: 0.08, palm: 0.11, finger: 0.13 },
     ],
     applications: [
-      { label: 'Healthcare', img: 'assets/images/Healthcare 2 Icon.png' },
-      { label: 'Laboratory', img: 'assets/images/Lab Icon.png' },
-      { label: 'Food Industry', img: 'assets/images/F&B Icon.png' },
-      { label: 'Dental', img: 'assets/images/Dentist Icon.png' },
-      { label: 'General Use', img: 'assets/images/General Use 2 Icon.png' },
-      { label: 'Cleaning and Maintenance Purposes', img: 'assets/images/Cleaning 2 Icon.png' },
+      { label: 'Healthcare', img: 'assets/images/Healthcare Icon.png' },
+      { label: 'Laboratory', img: 'assets/images/Laboratory Icon.png' },
+      { label: 'Food Industry', img: 'assets/images/F&B 2 Icon.png' },
+      { label: 'Dental', img: 'assets/images/Dentist 2 Icon.png' },
+      { label: 'General Use', img: 'assets/images/General Use Icon.png' },
+      { label: 'Cleaning and Maintenance Purposes', img: 'assets/images/Cleaning Icon.png' },
     ]
   };
 }
