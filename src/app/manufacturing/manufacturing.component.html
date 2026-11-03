@@ -15,12 +15,15 @@
     <nav class="tabs">
       <button class="tab" [class.tab--active]="activeTab() === 'nitrile'" (click)="setTab('nitrile')">Nitrile
         Examination Glove</button>
-      <button class="tab tab--teal" [class.tab--active-teal]="activeTab() === 'natural'"
+      <button class="tab tab--teal" [class.tab--active--teal]="activeTab() === 'natural'"
+        (click)="setTab('natural')">Natural
+        Rubber Examination Glove </button>
+      <!-- <button class="tab tab--teal" [class.tab--active-teal]="activeTab() === 'natural'"
         (click)="setTab('natural')">Natural Rubber
         Polymer Latex</button>
       <button class="tab tab--teal" [class.tab--active-teal]="activeTab() === 'chlorinated'"
         (click)="setTab('chlorinated')">Natural
-        Rubber Chlorinated Latex</button>
+        Rubber Chlorinated Latex</button> -->
       <button class="tab" [class.tab--active]="activeTab() === 'certifications'"
         (click)="setTab('certifications')">Certifications</button>
     </nav>
@@ -36,7 +39,7 @@
       <div class="product-hero__copy">
         <span class="product-badge">Powder Free</span>
         <h2 class="product-hero__title">Nitrile Examination Glove</h2>
-        <p class="product-hero__subtitle">100% Synthetic Nitrile Latex</p>
+        <p class="product-hero__subtitle">100% Synthetic Nitrile Butadiene Rubber</p>
       </div>
       <div class="product-hero__image">
         <img src="assets/images/Nitrile Glove.png" alt="Nitrile Examination Glove" />
@@ -172,16 +175,16 @@
     </section>
     }
 
-    <!-- NATURAL RUBBER POLYMER LATEX -->
+    <!-- NATURAL RUBBER EXAMINATION GLOVE -->
     @if (activeTab() === 'natural') {
     <div class="product-hero product-hero--teal">
       <div class="product-hero__copy">
         <span class="product-badge">Powder Free</span>
-        <h2 class="product-hero__title">Natural Rubber Polymer Latex</h2>
-        <p class="product-hero__subtitle">Examination Gloves</p>
+        <h2 class="product-hero__title">Natural Rubber <br> Examination Glove</h2>
+        <p class="product-hero__subtitle">Natural High Grade Rubber Latex</p>
       </div>
       <div class="product-hero__image">
-        <img src="assets/images/Chlorinated Latex Glove.png" alt="Natural Rubber Polymer Latex" />
+        <img src="assets/images/NITRILE GLOVES.png" alt="Natural Rubber Polymer Latex" />
       </div>
     </div>
     <section class="section section--teal">

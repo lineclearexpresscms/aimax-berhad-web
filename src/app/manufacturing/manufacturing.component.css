@@ -688,11 +688,38 @@
   .cert-hero-badges { gap: 8px; }
   .cert-card .cert-hero-badges { gap: 8px; }
 
-  .conformance__grid { grid-template-columns: 1fr; gap: 8px; }
-  .conformance__tile { padding: 10px 6px; }
-  .conformance__tile img { max-height: 48px; }
-  .conformance__tile h4 { font-size: 0.75rem; }
-  .conformance__tile p { font-size: 0.7rem; }
+.conformance__grid { grid-template-columns: 1fr; gap: 8px; }
+.conformance__tile { padding: 10px 6px; }
+.conformance__tile img { max-height: 48px; }
+.conformance__tile h4 { font-size: 0.75rem; }
+.conformance__tile p { font-size: 0.7rem; }
+}
+
+.dim-header span:first-child,
+.dim-row span:first-child {
+  text-align: center;
+  padding-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .size-header,
+  .size-row {
+    grid-template-columns: 1.5fr repeat(5, 1fr);
+  }
+
+  .size-header span:first-child,
+  .size-row span:first-child {
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 6px;
+    white-space: nowrap;
+  }
+
+  .size-header span,
+  .size-row span {
+    overflow: visible;
+    text-overflow: clip;
+  }
 }
 
 /* ============================================
